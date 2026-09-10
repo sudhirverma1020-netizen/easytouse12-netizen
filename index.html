@@ -1,1046 +1,162 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="KaamKiSite - Simple, fast and useful online tools.">
-<title>KaamKiSite 🚀 | रोज़मर्रा के Smart Tools</title>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-:root{
-  --bg:#050816;
-  --bg2:#0b1230;
-  --card:rgba(18,27,63,.72);
-  --white:#fff;
-  --muted:#aab4d5;
-  --purple:#7c5cff;
-  --cyan:#25d9ff;
-  --pink:#ff62c7;
-  --border:rgba(255,255,255,.11);
-}
-
-html{scroll-behavior:smooth}
-
-body{
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:var(--bg);
-  color:var(--white);
-  overflow-x:hidden;
-}
-
-/* SPACE */
-.space{
-  position:fixed;
-  inset:0;
-  z-index:-10;
-  background:
-  radial-gradient(circle at 15% 15%,rgba(124,92,255,.22),transparent 28%),
-  radial-gradient(circle at 85% 25%,rgba(37,217,255,.13),transparent 25%),
-  radial-gradient(circle at 50% 90%,rgba(255,98,199,.08),transparent 30%),
-  linear-gradient(180deg,#050816,#080d25 55%,#050816);
-}
-
-.stars,
-.stars:before,
-.stars:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:
-    radial-gradient(2px 2px at 10% 20%,#fff,transparent),
-    radial-gradient(1px 1px at 22% 70%,#fff,transparent),
-    radial-gradient(2px 2px at 35% 15%,#fff,transparent),
-    radial-gradient(1px 1px at 48% 45%,#fff,transparent),
-    radial-gradient(2px 2px at 60% 10%,#fff,transparent),
-    radial-gradient(1px 1px at 75% 65%,#fff,transparent),
-    radial-gradient(2px 2px at 90% 30%,#fff,transparent),
-    radial-gradient(1px 1px at 82% 90%,#fff,transparent),
-    radial-gradient(1px 1px at 40% 88%,#fff,transparent);
-  opacity:.5;
-  animation:starsMove 25s linear infinite;
-}
-
-.stars:before{
-  transform:scale(1.5);
-  opacity:.25;
-  animation-duration:40s;
-}
-
-.stars:after{
-  transform:scale(2);
-  opacity:.18;
-  animation-duration:60s;
-}
-
-@keyframes starsMove{
-  from{transform:translateY(0)}
-  to{transform:translateY(-100px)}
-}
-
-/* NAV */
-nav{
-  width:min(1180px,92%);
-  margin:18px auto;
-  padding:14px 18px;
-  border:1px solid var(--border);
-  border-radius:22px;
-  background:rgba(5,9,28,.7);
-  backdrop-filter:blur(18px);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:relative;
-  z-index:20;
-}
-
-.logo{
-  font-size:22px;
-  font-weight:900;
-}
-
-.logo span{color:var(--cyan)}
-
-.nav-btn{
-  color:#fff;
-  text-decoration:none;
-  background:linear-gradient(135deg,var(--purple),#5540d5);
-  padding:10px 16px;
-  border-radius:13px;
-  font-size:14px;
-  font-weight:800;
-}
-
-/* HERO */
-.hero{
-  width:min(1180px,92%);
-  min-height:590px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  align-items:center;
-  gap:30px;
-}
-
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 14px;
-  border:1px solid rgba(37,217,255,.25);
-  background:rgba(37,217,255,.07);
-  border-radius:50px;
-  color:#c6f6ff;
-  font-size:13px;
-  margin-bottom:22px;
-}
-
-.badge i{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--cyan);
-  box-shadow:0 0 18px var(--cyan);
-}
-
-h1{
-  font-size:clamp(43px,7vw,76px);
-  line-height:.98;
-  letter-spacing:-4px;
-  max-width:700px;
-}
-
-.gradient{
-  background:linear-gradient(90deg,#fff,#a08fff,#45e4ff);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.hero p{
-  color:var(--muted);
-  font-size:18px;
-  line-height:1.65;
-  max-width:620px;
-  margin:24px 0;
-}
-
-.actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.primary,
-.secondary{
-  border:0;
-  text-decoration:none;
-  padding:15px 21px;
-  border-radius:15px;
-  font-weight:800;
-  cursor:pointer;
-  font-size:15px;
-}
-
-.primary{
-  color:#fff;
-  background:linear-gradient(135deg,var(--purple),#4e3bcc);
-  box-shadow:0 12px 35px rgba(124,92,255,.3);
-}
-
-.secondary{
-  color:#fff;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.06);
-}
-
-/* 3D MASCOT */
-.mascot-area{
-  height:470px;
-  position:relative;
-  display:grid;
-  place-items:center;
-}
-
-.orbit{
-  position:absolute;
-  width:350px;
-  height:350px;
-  border:1px solid rgba(124,92,255,.28);
-  border-radius:50%;
-  transform:rotate(-18deg);
-  box-shadow:0 0 90px rgba(124,92,255,.12);
-}
-
-.orbit:before{
-  content:"";
-  position:absolute;
-  width:12px;
-  height:12px;
-  border-radius:50%;
-  background:var(--cyan);
-  box-shadow:0 0 25px var(--cyan);
-  left:35px;
-  top:55px;
-}
-
-.mascot{
-  width:245px;
-  height:330px;
-  position:relative;
-  animation:float 4s ease-in-out infinite;
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0) rotate(1deg)}
-  50%{transform:translateY(-18px) rotate(-1deg)}
-}
-
-.glow{
-  position:absolute;
-  width:280px;
-  height:280px;
-  border-radius:50%;
-  background:rgba(124,92,255,.18);
-  filter:blur(50px);
-}
-
-.head{
-  width:155px;
-  height:155px;
-  margin:auto;
-  border-radius:50%;
-  position:relative;
-  background:linear-gradient(145deg,#ffe9dc,#efb9a5);
-  box-shadow:
-    inset -12px -18px 25px rgba(150,70,80,.12),
-    0 15px 30px rgba(0,0,0,.25);
-}
-
-.hair{
-  position:absolute;
-  inset:-13px -7px 28px;
-  border-radius:50% 50% 35% 35%;
-  background:linear-gradient(145deg,#3e2954,#211b36);
-  z-index:-1;
-}
-
-.hair:after{
-  content:"";
-  position:absolute;
-  width:55px;
-  height:95px;
-  right:-20px;
-  top:65px;
-  border-radius:50%;
-  background:#2b2141;
-  transform:rotate(-15deg);
-}
-
-.eye{
-  position:absolute;
-  top:72px;
-  width:12px;
-  height:17px;
-  background:#19182b;
-  border-radius:50%;
-}
-
-.eye.left{left:43px}
-.eye.right{right:43px}
-
-.eye:after{
-  content:"";
-  position:absolute;
-  width:3px;
-  height:5px;
-  background:#fff;
-  border-radius:50%;
-  left:3px;
-  top:3px;
-}
-
-.smile{
-  position:absolute;
-  width:34px;
-  height:18px;
-  border-bottom:3px solid #a95069;
-  border-radius:50%;
-  left:60px;
-  top:103px;
-}
-
-.body{
-  width:170px;
-  height:145px;
-  margin:-2px auto 0;
-  border-radius:50px 50px 28px 28px;
-  background:linear-gradient(145deg,#7c69ff,#342875);
-  position:relative;
-  box-shadow:0 20px 35px rgba(0,0,0,.25);
-}
-
-.collar{
-  position:absolute;
-  width:62px;
-  height:28px;
-  left:54px;
-  top:0;
-  border-radius:0 0 25px 25px;
-  background:#151a3b;
-}
-
-/* SEARCH */
-.search-area{
-  width:min(850px,92%);
-  margin:0 auto 80px;
-  text-align:center;
-}
-
-.search-area h2{
-  font-size:32px;
-  margin-bottom:10px;
-}
-
-.search-area p{
-  color:var(--muted);
-  margin-bottom:20px;
-}
-
-.search{
-  display:flex;
-  padding:7px;
-  border:1px solid var(--border);
-  background:rgba(12,18,45,.85);
-  border-radius:18px;
-}
-
-.search input{
-  flex:1;
-  min-width:0;
-  border:0;
-  outline:0;
-  background:transparent;
-  color:#fff;
-  padding:14px;
-  font-size:16px;
-}
-
-.search button{
-  border:0;
-  border-radius:13px;
-  padding:0 22px;
-  background:var(--purple);
-  color:#fff;
-  font-weight:800;
-}
-
-/* TOOLS */
-.tools{
-  width:min(1180px,92%);
-  margin:auto;
-  padding-bottom:80px;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:30px;
-}
-
-.section-title h2{
-  font-size:38px;
-}
-
-.section-title p{
-  color:var(--muted);
-  margin-top:8px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-}
-
-.tool-card{
-  border:1px solid var(--border);
-  border-radius:23px;
-  padding:25px;
-  min-height:190px;
-  background:linear-gradient(145deg,rgba(22,31,68,.82),rgba(10,15,37,.8));
-  transition:.25s;
-  cursor:pointer;
-  position:relative;
-  overflow:hidden;
-}
-
-.tool-card:hover{
-  transform:translateY(-7px);
-  border-color:rgba(124,92,255,.6);
-  box-shadow:0 20px 45px rgba(0,0,0,.25);
-}
-
-.icon{
-  font-size:34px;
-  margin-bottom:17px;
-}
-
-.tool-card h3{
-  font-size:20px;
-  margin-bottom:8px;
-}
-
-.tool-card p{
-  color:var(--muted);
-  line-height:1.5;
-  font-size:14px;
-}
-
-.arrow{
-  position:absolute;
-  right:22px;
-  bottom:18px;
-  font-size:22px;
-}
-
-/* TOOL PANEL */
-.tool-panel{
-  width:min(760px,92%);
-  margin:0 auto 90px;
-  display:none;
-}
-
-.tool-panel.active{
-  display:block;
-  animation:appear .35s ease;
-}
-
-@keyframes appear{
-  from{opacity:0;transform:translateY(15px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-.calculator{
-  border:1px solid var(--border);
-  border-radius:28px;
-  padding:30px;
-  background:rgba(14,21,51,.88);
-  backdrop-filter:blur(20px);
-  box-shadow:0 25px 70px rgba(0,0,0,.3);
-}
-
-.calculator h2{
-  font-size:30px;
-  margin-bottom:8px;
-}
-
-.calculator .sub{
-  color:var(--muted);
-  margin-bottom:25px;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-}
-
-.field label{
-  display:block;
-  font-size:13px;
-  color:#b8c1dd;
-  margin-bottom:7px;
-}
-
-.field input,
-.field select{
-  width:100%;
-  padding:14px;
-  border:1px solid var(--border);
-  border-radius:13px;
-  background:#090f29;
-  color:#fff;
-  outline:0;
-  font-size:15px;
-}
-
-.calc-btn{
-  width:100%;
-  margin-top:18px;
-  padding:15px;
-  border:0;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--purple),#4e3bcc);
-  color:#fff;
-  font-size:16px;
-  font-weight:800;
-  cursor:pointer;
-}
-
-.result{
-  margin-top:20px;
-  padding:20px;
-  border-radius:17px;
-  background:rgba(37,217,255,.07);
-  border:1px solid rgba(37,217,255,.16);
-  display:none;
-}
-
-.result.show{display:block}
-
-.result strong{
-  font-size:25px;
-  display:block;
-  margin-bottom:7px;
-}
-
-.result span{
-  color:var(--muted);
-}
-
-.close-tool{
-  display:block;
-  margin:15px auto 0;
-  background:transparent;
-  color:#aeb8d8;
-  border:0;
-  cursor:pointer;
-}
-
-/* FEATURE */
-.feature{
-  width:min(1180px,92%);
-  margin:0 auto 80px;
-  padding:42px 25px;
-  border:1px solid var(--border);
-  border-radius:28px;
-  text-align:center;
-  background:linear-gradient(120deg,rgba(124,92,255,.12),rgba(37,217,255,.05));
-}
-
-.feature h2{
-  font-size:32px;
-  margin-bottom:12px;
-}
-
-.feature p{
-  color:var(--muted);
-  max-width:720px;
-  margin:auto;
-  line-height:1.7;
-}
-
-footer{
-  border-top:1px solid var(--border);
-  padding:30px 5%;
-  text-align:center;
-  color:#7f8aad;
-  font-size:13px;
-}
-
-/* MOBILE */
-@media(max-width:800px){
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-    padding-top:40px;
+document.getElementById("searchInput").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    searchTools();
   }
-
-  .hero p{
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .actions{justify-content:center}
-
-  .mascot-area{
-    height:380px;
-    transform:scale(.82);
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-
-  h1{
-    letter-spacing:-2.5px;
-  }
-
-  .section-title h2{
-    font-size:31px;
-  }
-}
-
-@media(max-width:480px){
-  nav{
-    margin-top:10px;
-  }
-
-  .logo{
-    font-size:19px;
-  }
-
-  .nav-btn{
-    padding:8px 11px;
-  }
-
-  .search button{
-    padding:0 15px;
-  }
-
-  .calculator{
-    padding:22px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="space">
-  <div class="stars"></div>
-</div>
-
-<!-- NAV -->
-<nav>
-  <div class="logo">KaamKi<span>Site</span> 🚀</div>
-  <a href="#tools" class="nav-btn">Tools खोलें</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-
-  <div>
-    <div class="badge">
-      <i></i>
-      Smart tools • Simple experience
-    </div>
-
-    <h1>
-      आपका काम,
-      <span class="gradient">अब आसान।</span>
-    </h1>
-
-    <p>
-      रोज़मर्रा के useful online tools एक ही जगह।
-      Fast, simple और बिना किसी confusion के।
-      अपना tool चुनिए और काम शुरू कीजिए।
-    </p>
-
-    <div class="actions">
-      <a href="#tools" class="primary">🚀 Start Exploring</a>
-      <a href="#search" class="secondary">🔎 Tool खोजें</a>
-    </div>
-  </div>
-
-  <!-- MASCOT -->
-  <div class="mascot-area">
-    <div class="glow"></div>
-    <div class="orbit"></div>
-
-    <div class="mascot">
-      <div class="head">
-        <div class="hair"></div>
-        <div class="eye left"></div>
-        <div class="eye right"></div>
-        <div class="smile"></div>
-      </div>
-
-      <div class="body">
-        <div class="collar"></div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- SEARCH -->
-<section class="search-area" id="search">
-  <h2>आज क्या करना है? 🔎</h2>
-  <p>Tool का नाम लिखकर तुरंत खोजिए।</p>
-
-  <div class="search">
-    <input id="searchInput" type="text"
-           placeholder="जैसे Age Calculator, EMI...">
-    <button onclick="searchTools()">Search</button>
-  </div>
-</section>
-
-<!-- TOOLS -->
-<section class="tools" id="tools">
-
-  <div class="section-title">
-    <h2>Popular Tools 🛠️</h2>
-    <p>काम की चीज़ें — एक ही जगह।</p>
-  </div>
-
-  <div class="grid" id="toolGrid">
-
-    <div class="tool-card"
-         data-name="age calculator age">
-      <div class="icon">🎂</div>
-      <h3>Age Calculator</h3>
-      <p>अपनी exact age साल, महीने और दिनों में जानें।</p>
-      <div class="arrow">→</div>
-    </div>
-
-    <div class="tool-card"
-         data-name="emi calculator emi loan">
-      <div class="icon">💰</div>
-      <h3>EMI Calculator</h3>
-      <p>Loan की EMI और total payment calculate करें।</p>
-      <div class="arrow">→</div>
-    </div>
-
-    <div class="tool-card"
-         data-name="percentage calculator percentage">
-      <div class="icon">📊</div>
-      <h3>Percentage</h3>
-      <p>Percentage calculation कुछ seconds में करें।</p>
-      <div class="arrow">→</div>
-    </div>
-
-    <div class="tool-card"
-         data-name="date day calculator date">
-      <div class="icon">📅</div>
-      <h3>Date & Day</h3>
-      <p>दो dates के बीच का difference और days जानें।</p>
-      <div class="arrow">→</div>
-    </div>
-
-    <div class="tool-card"
-         data-name="unit converter converter">
-      <div class="icon">🔄</div>
-      <h3>Unit Converter</h3>
-      <p>Length और weight जैसी units आसानी से convert करें।</p>
-      <div class="arrow">→</div>
-    </div>
-
-    <div class="tool-card"
-         data-name="pdf tools pdf">
-      <div class="icon">📄</div>
-      <h3>PDF Tools</h3>
-      <p>PDF से जुड़े useful tools जल्द यहाँ मिलेंगे।</p>
-      <div class="arrow">→</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- AGE CALCULATOR -->
-<section class="tool-panel" id="ageTool">
-  <div class="calculator">
-    <h2>🎂 Age Calculator</h2>
-    <p class="sub">अपनी exact उम्र calculate करें।</p>
-
-    <div class="form-grid">
-      <div class="field">
-        <label>Date of Birth</label>
-        <input type="date" id="dob">
-      </div>
-
-      <div class="field">
-        <label>Calculate Until</label>
-        <input type="date" id="ageUntil">
-      </div>
-    </div>
-
-    <button class="calc-btn" onclick="calculateAge()">
-      Calculate Age 🚀
-    </button>
-
-    <div class="result" id="ageResult"></div>
-
-    <button class="close-tool" onclick="closeTools()">
-      ← Tools पर वापस जाएँ
-    </button>
-  </div>
-</section>
-
-<!-- EMI -->
-<section class="tool-panel" id="emiTool">
-  <div class="calculator">
-    <h2>💰 EMI Calculator</h2>
-    <p class="sub">अपने loan की monthly EMI जानें।</p>
-
-    <div class="form-grid">
-
-      <div class="field">
-        <label>Loan Amount (₹)</label>
-        <input type="number" id="loanAmount"
-               placeholder="500000">
-      </div>
-
-      <div class="field">
-        <label>Interest Rate (% yearly)</label>
-        <input type="number" id="interest"
-               placeholder="8.5" step="0.01">
-      </div>
-
-      <div class="field">
-        <label>Loan Tenure (Years)</label>
-        <input type="number" id="years"
-               placeholder="5">
-      </div>
-
-    </div>
-
-    <button class="calc-btn" onclick="calculateEMI()">
-      Calculate EMI 💸
-    </button>
-
-    <div class="result" id="emiResult"></div>
-
-    <button class="close-tool" onclick="closeTools()">
-      ← Tools पर वापस जाएँ
-    </button>
-  </div>
-</section>
-
-<!-- PERCENTAGE -->
-<section class="tool-panel" id="percentageTool">
-  <div class="calculator">
-    <h2>📊 Percentage Calculator</h2>
-    <p class="sub">किसी भी number का percentage तुरंत निकालें।</p>
-
-    <div class="form-grid">
-
-      <div class="field">
-        <label>Percentage (%)</label>
-        <input type="number" id="percent"
-               placeholder="20">
-      </div>
-
-      <div class="field">
-        <label>Number</label>
-        <input type="number" id="percentNumber"
-               placeholder="500">
-      </div>
-
-    </div>
-
-    <button class="calc-btn" onclick="calculatePercentage()">
-      Calculate %
-    </button>
-
-    <div class="result" id="percentageResult"></div>
-
-    <button class="close-tool" onclick="closeTools()">
-      ← Tools पर वापस जाएँ
-    </button>
-  </div>
-</section>
-
-<!-- DATE -->
-<section class="tool-panel" id="dateTool">
-  <div class="calculator">
-    <h2>📅 Date Difference</h2>
-    <p class="sub">दो dates के बीच कितने दिन हैं, जानें।</p>
-
-    <div class="form-grid">
-
-      <div class="field">
-        <label>Start Date</label>
-        <input type="date" id="startDate">
-      </div>
-
-      <div class="field">
-        <label>End Date</label>
-        <input type="date" id="endDate">
-      </div>
-
-    </div>
-
-    <button class="calc-btn" onclick="calculateDateDifference()">
-      Calculate Days 📅
-    </button>
-
-    <div class="result" id="dateResult"></div>
-
-    <button class="close-tool" onclick="closeTools()">
-      ← Tools पर वापस जाएँ
-    </button>
-  </div>
-</section>
-
-<!-- UNIT -->
-<section class="tool-panel" id="unitTool">
-  <div class="calculator">
-    <h2>🔄 Unit Converter</h2>
-    <p class="sub">Common units को आसानी से convert करें।</p>
-
-    <div class="form-grid">
-
-      <div class="field">
-        <label>Value</label>
-        <input type="number" id="unitValue"
-               placeholder="100">
-      </div>
-
-      <div class="field">
-        <label>Conversion</label>
-        <select id="unitType">
-          <option value="km-miles">Kilometer → Miles</option>
-          <option value="miles-km">Miles → Kilometer</option>
-          <option value="kg-lb">Kilogram → Pound</option>
-          <option value="lb-kg">Pound → Kilogram</option>
-          <option value="meter-feet">Meter → Feet</option>
-          <option value="feet-meter">Feet → Meter</option>
-          <option value="cm-inch">Centimeter → Inch</option>
-          <option value="inch-cm">Inch → Centimeter</option>
-        </select>
-      </div>
-
-    </div>
-
-    <button class="calc-btn" onclick="convertUnit()">
-      Convert 🔄
-    </button>
-
-    <div class="result" id="unitResult"></div>
-
-    <button class="close-tool" onclick="closeTools()">
-      ← Tools पर वापस जाएँ
-    </button>
-  </div>
-</section>
-
-<!-- FEATURE -->
-<section class="feature">
-  <h2>🌌 काम की दुनिया में आपका स्वागत है</h2>
-  <p>
-    KaamKiSite का goal simple है — रोज़मर्रा के छोटे-बड़े
-    calculations और useful कामों के लिए आपको अलग-अलग websites
-    खोजने की जरूरत न पड़े।
-  </p>
-</section>
-
-<footer>
-  © 2026 KaamKiSite 🚀 • Simple. Fast. Useful.
-</footer>
-
-<script>
-
-/* DEFAULT DATE */
-const today = new Date().toISOString().split("T")[0];
-
-document.getElementById("ageUntil").value = today;
-
-
-/* TOOL CARDS */
-const cards = document.querySelectorAll(".tool-card");
-
-cards.forEach(card => {
-  card.addEventListener("click", () => {
-
-    const name = card.dataset.name;
-
-    closeTools();
-
-    if(name.includes("age")){
-      openTool("ageTool");
-    }
-    else if(name.includes("emi")){
-      openTool("emiTool");
-    }
-    else if(name.includes("percentage")){
-      openTool("percentageTool");
-    }
-    else if(name.includes("date")){
-      openTool("dateTool");
-    }
-    else if(name.includes("unit")){
-      openTool("unitTool");
-    }
-    else if(name.includes("pdf")){
-      alert("PDF Tools जल्द आ रहे हैं 🚀");
-      return;
-    }
-
-    setTimeout(() => {
-      document.querySelector(".tool-panel.active")
-        ?.scrollIntoView({behavior:"smooth",block:"start"});
-    },100);
-  });
 });
 
+/* AGE CALCULATOR */
+function calculateAge() {
+  const dob = document.getElementById("dob").value;
+  const until = document.getElementById("ageUntil").value;
+  const res = document.getElementById("ageResult");
 
-function openTool(id){
-  document.getElementById(id).classList.add("active");
+  if (!dob || !until) {
+    res.style.display = "block";
+    res.innerHTML = "<span>कृपया दोनों तारीखें चुनें।</span>";
+    return;
+  }
+
+  const birthDate = new Date(dob);
+  const untilDate = new Date(until);
+
+  if (birthDate > untilDate) {
+    res.style.display = "block";
+    res.innerHTML = "<span>Birth date, calculate date से बाद की नहीं हो सकती।</span>";
+    return;
+  }
+
+  let years = untilDate.getFullYear() - birthDate.getFullYear();
+  let months = untilDate.getMonth() - birthDate.getMonth();
+  let days = untilDate.getDate() - birthDate.getDate();
+
+  if (days < 0) {
+    months--;
+    const prevMonth = new Date(untilDate.getFullYear(), untilDate.getMonth(), 0);
+    days += prevMonth.getDate();
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  res.style.display = "block";
+  res.innerHTML = `<strong>${years} वर्ष, ${months} महीने, ${days} दिन</strong><span>Exact Age</span>`;
 }
 
-function closeTools(){
-  document.querySelectorAll(".tool-panel")
-    .forEach(x=>x.classList.remove("active"));
+/* EMI CALCULATOR */
+function calculateEMI() {
+  const p = parseFloat(document.getElementById("loanAmount").value);
+  const rAnnual = parseFloat(document.getElementById("interest").value);
+  const years = parseFloat(document.getElementById("years").value);
+  const res = document.getElementById("emiResult");
+
+  if (!p || !rAnnual || !years) {
+  res.style.display = "block";
+    res.innerHTML = "<span>कृपया सभी सही वैल्यू भरें।</span>";
+    return;
+  }
+
+  const r = rAnnual / 12 / 100;
+  const n = years * 12;
+
+  const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+  const totalPayment = emi * n;
+  const totalInterest = totalPayment - p;
+
+  res.style.display = "block";
+  res.innerHTML = `<strong>₹ ${Math.round(emi).toLocaleString()} / महीना</strong><span>Total Interest: ₹ ${Math.round(totalInterest).toLocaleString()} | Total Payment: ₹ ${Math.round(totalPayment).toLocaleString()}</span>`;
 }
 
+/* PERCENTAGE CALCULATOR */
+function calculatePercentage() {
+  const p = parseFloat(document.getElementById("percent").value);
+  const num = parseFloat(document.getElementById("percentNumber").value);
+  const res = document.getElementById("percentageResult");
 
-/* SEARCH */
-function searchTools(){
+  if (isNaN(p) || isNaN(num)) {
+    res.style.display = "block";
+    res.innerHTML = "<span>कृपया दोनों नंबर भरें।</span>";
+    return;
+  }
 
-  const input =
-    document.getElementById("searchInput")
-    .value.toLowerCase()
-    .trim();
-
-  cards.forEach(card=>{
-
-    const name = card.dataset.name;
-
-    if(!input || name.includes(input)){
-      card.style.display = "block";
-    }else{
-      card.style.display = "none";
-    }
-
-  });
-
-  document.getElementById("tools")
-    .scrollIntoView({behavior:"smooth"});
+  const val = (p * num) / 100;
+  res.style.display = "block";
+  res.innerHTML = `<strong>${val}</strong><span>${p}% of ${num}</span>`;
 }
 
-document
+/* DATE DIFFERENCE */
+function calculateDateDifference() {
+  const start = document.getElementById("startDate").value;
+  const end = document.getElementById("endDate").value;
+  const res = document.getElementById("dateResult");
+
+  if (!start || !end) {
+    res.style.display = "block";
+    res.innerHTML = "<span>कृपया दोनों तारीखें चुनें।</span>";
+    return;
+  }
+
+  const d1 = new Date(start);
+  const d2 = new Date(end);
+  const diffTime = Math.abs(d2 - d1);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  res.style.display = "block";
+  res.innerHTML = `<strong>${diffDays} दिन</strong><span>कुल अंतर</span>`;
+}
+
+/* UNIT CONVERTER */
+function convertUnit() {
+  const val = parseFloat(document.getElementById("unitValue").value);
+  const type = document.getElementById("unitType").value;
+  const res = document.getElementById("unitResult");
+
+  if (isNaN(val)) {
+    res.style.display = "block";
+    res.innerHTML = "<span>कृपया वैध वैल्यू दर्ज करें।</span>";
+    return;
+  }
+
+  let ans = 0;
+  let text = "";
+
+  switch (type) {
+    case "km-miles":
+      ans = val * 0.621371;
+      text = `${val} Kilometer = ${ans.toFixed(4)} Miles`;
+      break;
+    case "miles-km":
+      ans = val * 1.60934;
+      text = `${val} Miles = ${ans.toFixed(4)} Kilometer`;
+      break;
+    case "kg-lb":
+      ans = val * 2.20462;
+      text = `${val} Kilogram = ${ans.toFixed(4)} Pound`;
+      break;
+    case "lb-kg":
+      ans = val * 0.453592;
+      text = `${val} Pound = ${ans.toFixed(4)} Kilogram`;
+      break;
+    case "meter-feet":
+      ans = val * 3.28084;
+      text = `${val} Meter = ${ans.toFixed(4)} Feet`;
+      break;
+    case "feet-meter":
+      ans = val * 0.3048;
+      text = `${val} Feet = ${ans.toFixed(4)} Meter`;
+      break;
+    case "cm-inch":
+      ans = val * 0.393701;
+      text = `${val} Centimeter = ${ans.toFixed(4)} Inch`;
+      break;
+    case "inch-cm":
+      ans = val * 2.54;
+      text = `${val} Inch = ${ans.toFixed(4)} Centimeter`;
+      break;
+  }
+
+  res.style.display = "block";
+  res.innerHTML = `<strong>${text}</strong><span>Converted Result</span>`;
+}
+</script>
