@@ -456,14 +456,262 @@ h1{
 .feature h2{font-size:32px; margin-bottom:12px;}
 .feature p{color:var(--muted); max-width:720px; margin:auto; line-height:1.7;}
 
+footer{
+  border-top:1px solid var(--border);
+  padding:35px 5%;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  background:rgba(3,5,17,0.8);
+}
+
+/* RESPONSIVE */
+@media(max-width:800px){
+  .hero{grid-template-columns:1fr; text-align:center; padding-top:20px;}
+  .hero p{margin-left:auto; margin-right:auto;}
+  .actions{justify-content:center;}
+  .mascot-area{height:380px; transform:scale(0.85);}
+  .grid{grid-template-columns:1fr;}
+  .form-grid{grid-template-columns:1fr;}
+  h1{letter-spacing:-2px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="space"><div class="stars"></div></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">KaamKi<span>Site</span> 🚀</div>
+  <a href="#tools" class="nav-btn">Explore Tools</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="badge"><i></i> Next-Gen Smart Tools • High Performance</div>
+    <h1>आपका काम, <span class="gradient">अब सुपरफास्ट।</span></h1>
+    <p>रोज़मर्रा के सभी useful calculation tools अब एक ही शानदार और futuristic स्पेस प्लेटफॉर्म पर। बिना किसी रुकावट के तेज परिणाम पाएं।</p>
+    <div class="actions">
+      <a href="#tools" class="primary">🚀 Start Exploring</a>
+      <a href="#search" class="secondary">🔎 Tool खोजें</a>
+    </div>
+  </div>
+
+  <div class="mascot-area">
+    <div class="glow-girl"></div>
+    <div class="orbit"></div>
+    
+    <div class="anime-girl-container">
+      <div class="speech-bubble">✨ Welcome! 💖</div>
+      <img src="anime.webp" alt="Anime Mascot" class="anime-img">
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH -->
+<section class="search-area" id="search">
+  <h2>आज क्या कैलकुलेट करना है? 🔎</h2>
+  <p>तुरंत खोजने के लिए नीचे टूल का नाम टाइप करें।</p>
+  <div class="search">
+    <input id="searchInput" type="text" placeholder="जैसे Age Calculator, EMI, Percentage..." oninput="searchTools()">
+    <button onclick="searchTools()">Search</button>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools" id="tools">
+  <div class="section-title">
+    <h2>Popular Utilities 🛠️</h2>
+    <p>आपके सभी स्मार्ट टूल्स एक ही जगह पर।</p>
+  </div>
+
+  <div class="grid" id="toolGrid">
+    <div class="tool-card" data-name="age calculator age">
+      <div class="icon">🎂</div>
+      <h3>Age Calculator</h3>
+      <p>अपनी exact age साल, महीने और दिनों में तुरंत calculate करें।</p>
+      <div class="arrow">→</div>
+    </div>
+
+    <div class="tool-card" data-name="emi calculator emi loan">
+      <div class="icon">💰</div>
+      <h3>EMI Calculator</h3>
+      <p>लोन की मंथली EMI और कुल ब्याज की सटीक गणना करें।</p>
+      <div class="arrow">→</div>
+    </div>
+
+    <div class="tool-card" data-name="percentage calculator percentage">
+      <div class="icon">📊</div>
+      <h3>Percentage</h3>
+      <p>किसी भी नंबर का प्रतिशत कुछ ही सेकंड्स में निकालें।</p>
+      <div class="arrow">→</div>
+    </div>
+
+    <div class="tool-card" data-name="date day calculator date">
+      <div class="icon">📅</div>
+      <h3>Date & Day</h3>
+      <p>दो तारीखों के बीच का सटीक दिनों का अंतर जानें।</p>
+      <div class="arrow">→</div>
+    </div>
+
+    <div class="tool-card" data-name="unit converter converter">
+      <div class="icon">🔄</div>
+      <h3>Unit Converter</h3>
+      <p>लंबाई, वजन और अन्य मानक इकाइयों को आसानी से बदलें।</p>
+      <div class="arrow">→</div>
+    </div>
+
+    <div class="tool-card" data-name="pdf tools pdf">
+      <div class="icon">📄</div>
+      <h3>PDF Tools</h3>
+      <p>डॉक्यूमेंट्स और पीडीएफ से जुड़े आधुनिक टूल्स जल्द आ रहे हैं।</p>
+      <div class="arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- AGE CALCULATOR PANEL -->
+<section class="tool-panel" id="ageTool">
+  <div class="calculator">
+    <h2>🎂 Age Calculator</h2>
+    <p class="sub">अपनी सही उम्र जांचें।</p>
+    <div class="form-grid">
+      <div class="field"><label>Date of Birth</label><input type="date" id="dob"></div>
+      <div class="field"><label>Calculate Until</label><input type="date" id="ageUntil"></div>
+    </div>
+    <button class="calc-btn" onclick="calculateAge()">Calculate Age 🚀</button>
+    <div class="result" id="ageResult"><strong></strong><span></span></div>
+    <button class="close-tool" onclick="closeTools()">← Tools पर वापस जाएं</button>
+  </div>
+</section>
+
+<!-- EMI PANEL -->
+<section class="tool-panel" id="emiTool">
+  <div class="calculator">
+    <h2>💰 EMI Calculator</h2>
+    <p class="sub">लोन रीपेमेंट डिटेल्स कैलकुलेट करें।</p>
+    <div class="form-grid">
+      <div class="field"><label>Loan Amount (₹)</label><input type="number" id="loanAmount" placeholder="500000"></div>
+      <div class="field"><label>Interest Rate (% yearly)</label><input type="number" id="interest" placeholder="8.5" step="0.01"></div>
+      <div class="field" style="grid-column: span 2;"><label>Loan Tenure (Years)</label><input type="number" id="years" placeholder="5"></div>
+    </div>
+    <button class="calc-btn" onclick="calculateEMI()">Calculate EMI 💸</button>
+    <div class="result" id="emiResult"><strong></strong><span></span></div>
+    <button class="close-tool" onclick="closeTools()">← Tools पर वापस जाएं</button>
+  </div>
+</section>
+
+<!-- PERCENTAGE PANEL -->
+<section class="tool-panel" id="percentageTool">
+  <div class="calculator">
+    <h2>📊 Percentage Calculator</h2>
+    <p class="sub">प्रतिशत निकालें आसानी से।</p>
+    <div class="form-grid">
+      <div class="field"><label>Percentage (%)</label><input type="number" id="percent" placeholder="20"></div>
+      <div class="field"><label>Number</label><input type="number" id="percentNumber" placeholder="500"></div>
+    </div>
+    <button class="calc-btn" onclick="calculatePercentage()">Calculate %</button>
+    <div class="result" id="percentageResult"><strong></strong><span></span></div>
+    <button class="close-tool" onclick="closeTools()">← Tools पर वापस जाएं</button>
+  </div>
+</section>
+
+<!-- DATE PANEL -->
+<section class="tool-panel" id="dateTool">
+  <div class="calculator">
+    <h2>📅 Date Difference</h2>
+    <p class="sub">दो तारीखों के बीच का अंतर जानें।</p>
+    <div class="form-grid">
+      <div class="field"><label>Start Date</label><input type="date" id="startDate"></div>
+      <div class="field"><label>End Date</label><input type="date" id="endDate"></div>
+    </div>
+    <button class="calc-btn" onclick="calculateDateDifference()">Calculate Days 📅</button>
+    <div class="result" id="dateResult"><strong></strong><span></span></div>
+    <button class="close-tool" onclick="closeTools()">← Tools पर वापस जाएं</button>
+  </div>
+</section>
+
+<!-- UNIT PANEL -->
+<section class="tool-panel" id="unitTool">
+  <div class="calculator">
+    <h2>🔄 Unit Converter</h2>
+    <p class="sub">विभिन्न यूनिट्स को बदलें।</p>
+    <div class="form-grid">
+      <div class="field"><label>Value</label><input type="number" id="unitValue" placeholder="100"></div>
+      <div class="field">
+        <label>Conversion</label>
+        <select id="unitType">
+          <option value="km-miles">Kilometer → Miles</option>
+          <option value="miles-km">Miles → Kilometer</option>
+          <option value="kg-lb">Kilogram → Pound</option>
+          <option value="lb-kg">Pound → Kilogram</option>
+          <option value="meter-feet">Meter → Feet</option>
+          <option value="feet-meter">Feet → Meter</option>
+          <option value="cm-inch">Centimeter → Inch</option>
+          <option value="inch-cm">Inch → Centimeter</option>
+        </select>
+      </div>
+    </div>
+    <button class="calc-btn" onclick="convertUnit()">Convert 🔄</button>
+    <div class="result" id="unitResult"><strong></strong><span></span></div>
+    <button class="close-tool" onclick="closeTools()">← Tools पर वापस जाएं</button>
+  </div>
+</section>
+
+<!-- FEATURE BANNER -->
+<section class="feature">
+  <h2>🌌 अत्याधुनिक तकनीक और सरल अनुभव</h2>
+  <p>KaamKiSite का उद्देश्य आपके सभी दैनिक कैलकुलेशन को तेज, सुरक्षित और बेहद आसान बनाना है ताकि आपको अलग-अलग ऐप्स या वेबसाइट्स पर भटकना न पड़े।</p>
+</section>
+
 <footer>
   © 2026 KaamKiSite 🚀 • Next-Gen Smart Tools. All Rights Reserved.
 </footer>
-.display = "none";
+
+<script>
+const today = new Date().toISOString().split("T")[0];
+document.getElementById("ageUntil").value = today;
+
+const cards = document.querySelectorAll(".tool-card");
+
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    const name = card.dataset.name;
+    closeTools();
+
+    if(name.includes("age")) openTool("ageTool");
+    else if(name.includes("emi")) openTool("emiTool");
+    else if(name.includes("percentage")) openTool("percentageTool");
+    else if(name.includes("date")) openTool("dateTool");
+    else if(name.includes("unit")) openTool("unitTool");
+    else if(name.includes("pdf")){
+      alert("PDF Tools जल्द आ रहे हैं 🚀");
+      return;
+    }
+
+    setTimeout(() => {
+      document.querySelector(".tool-panel.active")?.scrollIntoView({behavior:"smooth", block:"start"});
+    }, 100);
+  });
+});
+
+function openTool(id){ document.getElementById(id).classList.add("active"); }
+function closeTools(){ document.querySelectorAll(".tool-panel").forEach(x => x.classList.remove("active")); }
+
+function searchTools(){
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  cards.forEach(card => {
+    const name = card.dataset.name;
+    if(!input || name.includes(input)) card.style.display = "block";
+    else card.style.display = "none";
   });
   document.getElementById("tools").scrollIntoView({behavior:"smooth"});
 }
 
+// Complete Calculator Functions
 function calculateAge() {
   const dob = document.getElementById("dob").value;
   const until = document.getElementById("ageUntil").value;
@@ -616,4 +864,3 @@ function convertUnit() {
 
 </body>
 </html>
-  
