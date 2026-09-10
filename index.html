@@ -121,7 +121,7 @@ nav{
   border-radius:50px;
   color:#c6f6ff;
   font-size:13px;
-  margin-bottom:24px;
+  margin-bottom:15px;
   box-shadow:0 0 15px rgba(0,240,255,0.15);
 }
 .badge i{
@@ -130,6 +130,17 @@ nav{
   border-radius:50%;
   background:var(--cyan);
   box-shadow:0 0 12px var(--cyan);
+}
+
+.visitor-badge{
+  display:inline-block;
+  background:rgba(56, 189, 248, 0.1);
+  border:1px solid var(--border);
+  padding:6px 16px;
+  border-radius:20px;
+  font-size:0.9rem;
+  margin-bottom:20px;
+  color:var(--cyan);
 }
 
 h1{
@@ -492,6 +503,7 @@ footer{
 <section class="hero">
   <div>
     <div class="badge"><i></i> Next-Gen Smart Tools • High Performance</div>
+    <div class="visitor-badge" id="visitorCount">👥 Total Visitors: 1,245</div>
     <h1>आपका काम, <span class="gradient">अब सुपरफास्ट।</span></h1>
     <p>रोज़मर्रा के सभी useful calculation tools अब एक ही शानदार और futuristic स्पेस प्लेटफॉर्म पर। बिना किसी रुकावट के तेज परिणाम पाएं।</p>
     <div class="actions">
@@ -516,7 +528,7 @@ footer{
   <h2>आज क्या कैलकुलेट करना है? 🔎</h2>
   <p>तुरंत खोजने के लिए नीचे टूल का नाम टाइप करें।</p>
   <div class="search">
-    <input id="searchInput" type="text" placeholder="जैसे Age Calculator, EMI, Percentage..." oninput="searchTools()">
+    <input id="searchInput" type="text" placeholder="जैसे Calculator, Age, EMI, Percentage..." oninput="searchTools()">
     <button onclick="searchTools()">Search</button>
   </div>
 </section>
@@ -528,17 +540,20 @@ footer{
     <p>आपके सभी स्मार्ट टूल्स एक ही जगह पर।</p>
   </div>
 
+  <div class="grid" id="toolGrid">
+    <div class="tool-card" data-name="calculator normal calculator math">
+      <div class="icon">🔢</div>
+      <h3>Calculator</h3>
+      <p>सामान्य गणनाएँ तुरंत और आसानी से करें।</p>
+      <div class="arrow">→</div>
+    </div>
 
-
-  <!-- Age Calculator Card -->
-  <div class="tool-card" data-name="age calculator">
-    <div class="icon">🎂</div>
-    <h3>Age Calculator</h3>
-    <p>अपनी exact age साल, महीने और दिनों में तुरंत calculate करें</p>
-    <div class="arrow">→</div>
-  </div>
-  </div>
-    
+    <div class="tool-card" data-name="age calculator age">
+      <div class="icon">🎂</div>
+      <h3>Age Calculator</h3>
+      <p>अपनी exact age साल, महीने और दिनों में तुरंत calculate करें।</p>
+      <div class="arrow">→</div>
+    </div>
 
     <div class="tool-card" data-name="emi calculator emi loan">
       <div class="icon">💰</div>
@@ -570,49 +585,73 @@ footer{
 
     <div class="tool-card" data-name="pdf tools pdf">
       <div class="icon">📄</div>
-      <!-- CALCULATOR PANEL -->
-<section class="tool-panel" id="calculatorTool" style="display: none;">
-  <div class="calculator">
-    <h2>Calculator</h2>
-    <input type="text" id="calc-display" readonly style="width: 100%; height: 45px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 20px; text-align: right; padding: 0 10px; border-radius: 6px; margin-bottom: 10px; box-sizing: border-box;">
-    
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
-      <button onclick="clearCalc()" style="padding: 12px; background: #ff4757; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">C</button>
-      <button onclick="appendCalc('/')" style="padding: 12px; background: rgba(255,255,255,0.1); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">÷</button>
-      <button onclick="appendCalc('*')" style="padding: 12px; background: rgba(255,255,255,0.1); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">×</button>
-      <button onclick="appendCalc('-')" style="padding: 12px; background: rgba(255,255,255,0.1); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">-</button>
-
-      <button onclick="appendCalc('7')" style="padding: 12px; background: rgba(255,255,255,0.05); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">7</button>
-      <button onclick="appendCalc('8')" style="padding: 12px; background: rgba(255,255,255,0.05); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">8</button>
-      <button onclick="appendCalc('9')" style="padding: 12px; background: rgba(255,255,255,0.05); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">9</button>
-      <button onclick="appendCalc('+')" style="padding: 12px; background: rgba(255,255,255,0.1); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">+</button>
-
-      <button onclick="appendCalc('4')" style="padding: 12px; background: rgba(255,255,255,0.05); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">4</button>
-      <button onclick="appendCalc('5')" style="padding: 12px; background: rgba(255,255,255,0.05); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">5</button>
-      <button onclick="appendCalc('6')" style="padding: 12px; background: rgba(255,255,255,0.05); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">6</button>
-      <button onclick="calculateResult()" style="grid-row: span 2; padding: 12px; background: #2ed573; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">=</button>
-
-      <button onclick="appendCalc('1')" style="padding: 12px; background: rgba(255,255,255,0.05); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">1</button>
-      <button onclick="appendCalc('2')" style="padding: 12px; background: rgba(255,255,255,0.05); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">2</button>
-      <button onclick="appendCalc('3')" style="padding: 12px; background: rgba(255,255,255,0.05); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">3</button>
-
-      <button onclick="appendCalc('0')" style="grid-column: span 2; padding: 12px; background: rgba(255,255,255,0.05); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">0</button>
-      <button onclick="appendCalc('.')" style="padding: 12px; background: rgba(255,255,255,0.05); color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">.</button>
+      <h3>PDF Tools</h3>
+      <p>डॉक्यूमेंट्स और पीडीएफ से जुड़े आधुनिक टूल्स जल्द आ रहे हैं।</p>
+      <div class="arrow">→</div>
     </div>
   </div>
-  <button class="close-tool" onclick="closeTools()" style="margin-top: 15px; padding: 10px 20px; background: rgba(255,255,255,0.1); color: #fff; border: none; border-radius: 6px; cursor: pointer;">← Tools पर वापस जाएं</button>
 </section>
-      
-    <!-- Calculator UI & Buttons code -->
-  </div>
-</section>
-      
-      <h3>PDF Tools</h3>
-      <section class="tool-panel" id="calculatorTool" style="display: none;">
+
+<!-- NORMAL CALCULATOR PANEL -->
+<section class="tool-panel" id="calculatorTool">
   <div class="calculator">
-    <h2>Calculator</h2>
-    <input type="text" id="calc-display" readonly style="width: 100%; height: 45px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 20px; text-align: right; padding: 0 10px; border-radius: 6px; margin-bottom: 10px; box-sizing: border-box;">
+    <h2>🔢 Calculator</h2>
+    <p class="sub">सामान्य गणनाएँ तुरंत करें।</p>
+    <input type="text" id="calc-display" readonly style="width: 100%; height: 50px; background: #05081a; border: 1px solid var(--border); color: #fff; font-size: 24px; text-align: right; padding: 0 15px; border-radius: 14px; margin-bottom: 20px; box-sizing: border-box; outline: none;">
     
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+      <button onclick="clearCalc()" style="padding: 16px; background: rgba(255,71,87,0.2); border: 1px solid rgba(255,71,87,0.4); color: #ff4757; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">C</button>
+      <button onclick="appendCalc('/')" style="padding: 16px; background: rgba(0,240,255,0.08); border: 1px solid var(--border); color: var(--cyan); border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">÷</button>
+      <button onclick="appendCalc('*')" style="padding: 16px; background: rgba(0,240,255,0.08); border: 1px solid var(--border); color: var(--cyan); border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">×</button>
+      <button onclick="appendCalc('-')" style="padding: 16px; background: rgba(0,240,255,0.08); border: 1px solid var(--border); color: var(--cyan); border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">-</button>
+
+      <button onclick="appendCalc('7')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">7</button>
+      <button onclick="appendCalc('8')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">8</button>
+      <button onclick="appendCalc('9')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">9</button>
+      <button onclick="appendCalc('+')" style="padding: 16px; background: rgba(0,240,255,0.08); border: 1px solid var(--border); color: var(--cyan); border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">+</button>
+
+      <button onclick="appendCalc('4')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">4</button>
+      <button onclick="appendCalc('5')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">5</button>
+      <button onclick="appendCalc('6')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">6</button>
+      <button onclick="calculateResult()" style="grid-row: span 2; padding: 16px; background: linear-gradient(135deg, var(--purple), var(--cyan)); border: none; color: #fff; border-radius: 14px; font-weight: bold; font-size: 18px; cursor: pointer;">=</button>
+
+      <button onclick="appendCalc('1')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">1</button>
+      <button onclick="appendCalc('2')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">2</button>
+      <button onclick="appendCalc('3')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">3</button>
+
+      <button onclick="appendCalc('0')" style="grid-column: span 2; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">0</button>
+      <button onclick="appendCalc('.')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">.</button>
+    </div>
+  </div>
+  <button class="close-tool" onclick="closeTools()">← Tools पर वापस जाएं</button>
+</section>
+
+<!-- AGE CALCULATOR PANEL -->
+<section class="tool-panel" id="ageTool">
+  <div class="calculator">
+    <h2>🎂 Age Calculator</h2>
+    <p class="sub">अपनी सही उम्र जांचें।</p>
+    <div class="form-grid">
+      <div class="field"><label>Date of Birth</label><input type="date" id="dob"></div>
+      <div class="field"><label>Calculate Until</label><input type="date" id="ageUntil"></div>
+    </div>
+    <button class="calc-btn" onclick="calculateAge()">Calculate Age 🚀</button>
+    <div class="result" id="ageResult"><strong>      <button onclick="appendCalc('4')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">4</button>
+      <button onclick="appendCalc('5')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">5</button>
+      <button onclick="appendCalc('6')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">6</button>
+      <button onclick="calculateResult()" style="grid-row: span 2; padding: 16px; background: linear-gradient(135deg, var(--purple), var(--cyan)); border: none; color: #fff; border-radius: 14px; font-weight: bold; font-size: 18px; cursor: pointer;">=</button>
+
+      <button onclick="appendCalc('1')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">1</button>
+      <button onclick="appendCalc('2')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">2</button>
+      <button onclick="appendCalc('3')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">3</button>
+
+      <button onclick="appendCalc('0')" style="grid-column: span 2; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">0</button>
+      <button onclick="appendCalc('.')" style="padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: #fff; border-radius: 14px; font-weight: bold; font-size: 16px; cursor: pointer;">.</button>
+    </div>
+  </div>
+  <button class="close-tool" onclick="closeTools()">← Tools पर वापस जाएं</button>
+</section>
+
 <!-- AGE CALCULATOR PANEL -->
 <section class="tool-panel" id="ageTool">
   <div class="calculator">
@@ -722,7 +761,8 @@ cards.forEach(card => {
     const name = card.dataset.name;
     closeTools();
 
-    if(name.includes("age")) openTool("ageTool");
+    if(name.includes("calculator")) openTool("calculatorTool");
+    else if(name.includes("age")) openTool("ageTool");
     else if(name.includes("emi")) openTool("emiTool");
     else if(name.includes("percentage")) openTool("percentageTool");
     else if(name.includes("date")) openTool("dateTool");
@@ -748,25 +788,49 @@ function searchTools(){
     if(!input || name.includes(input)) card.style.display = "block";
     else card.style.display = "none";
   });
-  document.getElementById("tools").scrollIntoView({behavior:"smooth"});
 }
 
-// Complete Calculator Functions
-function calculateAge() {
+// Normal Calculator Functions
+function appendCalc(val) {
+  let display = document.getElementById('calc-display');
+  if (display) display.value += val;
+}
+
+function clearCalc() {
+  let display = document.getElementById('calc-display');
+  if (display) display.value = '';
+}
+
+function calculateResult() {
+  let display = document.getElementById('calc-display');
+  if (display) {
+    try {
+      display.value = eval(display.value);
+    } catch (e) {
+      display.value = 'Error';
+    }
+  }
+}
+
+function calculateAge(){
   const dob = document.getElementById("dob").value;
   const until = document.getElementById("ageUntil").value;
-  const resDiv = document.getElementById("ageResult");
-  
-  if(!dob || !until) {
-    alert("कृपया सही तारीख चुनें!");
+  const res = document.getElementById("ageResult");
+
+  if(!dob || !until){
+    res.style.display = "block";
+    res.querySelector("strong").innerText = "कृपया सही तारीख चुनें!";
+    res.querySelector("span").innerText = "";
     return;
   }
 
   const birthDate = new Date(dob);
   const untilDate = new Date(until);
 
-  if(birthDate > untilDate) {
-    alert("जन्म की तारीख भविष्य की नहीं हो सकती!");
+  if(birthDate > untilDate){
+    res.style.display = "block";
+    res.querySelector("strong").innerText = "जन्म तिथि बाद की नहीं हो सकती!";
+    res.querySelector("span").innerText = "";
     return;
   }
 
@@ -774,67 +838,74 @@ function calculateAge() {
   let months = untilDate.getMonth() - birthDate.getMonth();
   let days = untilDate.getDate() - birthDate.getDate();
 
-  if (days < 0) {
+  if(days < 0){
     months--;
     const prevMonth = new Date(untilDate.getFullYear(), untilDate.getMonth(), 0);
     days += prevMonth.getDate();
   }
-  if (months < 0) {
+
+  if(months < 0){
     years--;
     months += 12;
   }
 
-  resDiv.style.display = "block";
-  resDiv.querySelector("strong").innerText = `${years} साल, ${months} महीने, ${days} दिन`;
-  resDiv.querySelector("span").innerText = "सटीक आयु गणना सफल!";
+  res.style.display = "block";
+  res.querySelector("strong").innerText = `${years} साल, ${months} महीने, ${days} दिन`;
+  res.querySelector("span").innerText = "सटीक आयु गणना सफल!";
 }
 
-function calculateEMI() {
+function calculateEMI(){
   const p = parseFloat(document.getElementById("loanAmount").value);
-  const annualInterest = parseFloat(document.getElementById("interest").value);
+  const annualRate = parseFloat(document.getElementById("interest").value);
   const years = parseFloat(document.getElementById("years").value);
-  const resDiv = document.getElementById("emiResult");
+  const res = document.getElementById("emiResult");
 
-  if(!p || !annualInterest || !years) {
-    alert("सभी फील्ड्स भरें!");
+  if(!p || !annualRate || !years){
+    res.style.display = "block";
+    res.querySelector("strong").innerText = "कृपया सभी फील्ड्स भरें!";
+    res.querySelector("span").innerText = "";
     return;
   }
 
-  const r = annualInterest / 12 / 100;
+  const r = annualRate / 12 / 100;
   const n = years * 12;
-
   const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
   const totalPayment = emi * n;
   const totalInterest = totalPayment - p;
 
-  resDiv.style.display = "block";
-  resDiv.querySelector("strong").innerText = `₹ ${emi.toFixed(2)} / महीना`;
-  resDiv.querySelector("span").innerText = `कुल ब्याज: ₹ ${totalInterest.toFixed(2)} | कुल भुगतान: ₹ ${totalPayment.toFixed(2)}`;
+  res.style.display = "block";
+  res.querySelector("strong").innerText = `मंथली EMI: ₹${emi.toFixed(2)}`;
+  res.querySelector("span").innerText = `कुल भुगतान: ₹${totalPayment.toFixed(2)} | कुल ब्याज: ₹${totalInterest.toFixed(2)}`;
 }
 
-function calculatePercentage() {
+function calculatePercentage(){
   const percent = parseFloat(document.getElementById("percent").value);
   const num = parseFloat(document.getElementById("percentNumber").value);
-  const resDiv = document.getElementById("percentageResult");
+  const res = document.getElementById("percentageResult");
 
-  if(isNaN(percent) || isNaN(num)) {
-    alert("कृपया दोनों वैल्यू दर्ज करें!");
+  if(isNaN(percent) || isNaN(num)){
+    res.style.display = "block";
+    res.querySelector("strong").innerText = "कृपया सही वैल्यू दर्ज करें!";
+    res.querySelector("span").innerText = "";
     return;
   }
 
-  const ans = (percent * num) / 100;
-  resDiv.style.display = "block";
-  resDiv.querySelector("strong").innerText = `Result: ${ans}`;
-  resDiv.querySelector("span").innerText = `${percent}% of ${num} is ${ans}`;
+  const val = (percent * num) / 100;
+
+  res.style.display = "block";
+  res.querySelector("strong").innerText = `परिणाम: ${val}`;
+  res.querySelector("span").innerText = `${num} का ${percent}% यही होता है।`;
 }
 
-function calculateDateDifference() {
+function calculateDateDifference(){
   const start = document.getElementById("startDate").value;
   const end = document.getElementById("endDate").value;
-  const resDiv = document.getElementById("dateResult");
+  const res = document.getElementById("dateResult");
 
-  if(!start || !end) {
-    alert("दोनों तारीखें चुनें!");
+  if(!start || !end){
+    res.style.display = "block";
+    res.querySelector("strong").innerText = "कृपया दोनों तारीखें चुनें!";
+    res.querySelector("span").innerText = "";
     return;
   }
 
@@ -843,95 +914,41 @@ function calculateDateDifference() {
   const diffTime = Math.abs(d2 - d1);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  resDiv.style.display = "block";
-  resDiv.querySelector("strong").innerText = `${diffDays} दिन`;
-  resDiv.querySelector("span").innerText = "दो तारीखों के बीच का कुल अंतर";
+  res.style.display = "block";
+  res.querySelector("strong").innerText = `कुल अंतर: ${diffDays} दिन`;
+  res.querySelector("span").innerText = "तारीखों के बीच का कुल समय।";
 }
 
-function convertUnit() {
+function convertUnit(){
   const val = parseFloat(document.getElementById("unitValue").value);
   const type = document.getElementById("unitType").value;
-  const resDiv = document.getElementById("unitResult");
+  const res = document.getElementById("unitResult");
 
-  if(isNaN(val)) {
-    alert("कृपया वेलिड वैल्यू डालें!");
+  if(isNaN(val)){
+    res.style.display = "block";
+    res.querySelector("strong").innerText = "कृपया नंबर दर्ज करें!";
+    res.querySelector("span").innerText = "";
     return;
   }
 
-  let result = 0;
-  let unitText = "";
+  let ans = 0;
+  let unitName = "";
 
-  switch(type) {
-    case "km-miles":
-      result = val * 0.621371;
-      unitText = `${val} Kilometer = ${result.toFixed(4)} Miles`;
-      break;
-    case "miles-km":
-      result = val * 1.60934;
-      unitText = `${val} Miles = ${result.toFixed(4)} Kilometer`;
-      break;
-    case "kg-lb":
-      result = val * 2.20462;
-      unitText = `${val} Kilogram = ${result.toFixed(4)} Pounds`;
-      break;
-    case "lb-kg":
-      result = val * 0.453592;
-      unitText = `${val} Pound = ${result.toFixed(4)} Kilograms`;
-      break;
-    case "meter-feet":
-      result = val * 3.28084;
-      unitText = `${val} Meter = ${result.toFixed(4)} Feet`;
-      break;
-    case "feet-meter":
-      result = val * 0.3048;
-      unitText = `${val} Feet = ${result.toFixed(4)} Meter`;
-      break;
-    case "cm-inch":
-      result = val * 0.393701;
-      unitText = `${val} Centimeter = ${result.toFixed(4)} Inches`;
-      break;
-    case "inch-cm":
-      result = val * 2.54;
-      unitText = `${val} Inch = ${result.toFixed(4)} Centimeters`;
-      break;
+  switch(type){
+    case "km-miles": ans = val * 0.621371; unitName = "Miles"; break;
+    case "miles-km": ans = val / 0.621371; unitName = "Kilometers"; break;
+    case "kg-lb": ans = val * 2.20462; unitName = "Pounds"; break;
+    case "lb-kg": ans = val / 2.20462; unitName = "Kilograms"; break;
+    case "meter-feet": ans = val * 3.28084; unitName = "Feet"; break;
+    case "feet-meter": ans = val / 3.28084; unitName = "Meters"; break;
+    case "cm-inch": ans = val / 2.54; unitName = "Inches"; break;
+    case "inch-cm": ans = val * 2.54; unitName = "Centimeters"; break;
   }
 
-  resDiv.style.display = "block";
-  resDiv.querySelector("strong").innerText = unitText;
-  resDiv.querySelector("span").innerText = "सफल रूपांतरण (Conversion Successful)";
+  res.style.display = "block";
+  res.querySelector("strong").innerText = `परिणाम: ${ans.toFixed(4)} ${unitName}`;
+  res.querySelector("span").innerText = "यूनिट कन्वर्जन सफल!";
 }
 </script>
-<div style="text-align: center; margin: 15px 0; color: var(--muted); font-size: 13px;">
-  Visitors: <span id="visitor-count">15</span>
-</div>
-
-<script>
-  let visits = localStorage.getItem("kaamkisite_visits") || 15;
-  if (!sessionStorage.getItem("visited")) {
-    visits++;
-    localStorage.setItem("kaamkisite_visits", visits);
-    sessionStorage.setItem("visited", "true");
-  }
-  document.getElementById("visitor-count").innerText = visits;
-</script>
-    function appendCalc(val) {
-    let display = document.getElementById('calc-display');
-    if (display) display.value += val;
-  }
-  function clearCalc() {
-    let display = document.getElementById('calc-display');
-    if (display) display.value = '';
-  }
-  function calculateResult() {
-    let display = document.getElementById('calc-display');
-    if (display) {
-      try {
-        display.value = eval(display.value);
-      } catch (e) {
-        display.value = 'Error';
-      }
-    }
-  }
-
 </body>
 </html>
