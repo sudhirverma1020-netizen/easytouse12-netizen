@@ -3,200 +3,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="KaamKiSite - Simple, fast and useful online tools.">
-<title>KaamKiSite 🚀 | रोज़मर्रा के Smart Tools</title>
+<meta name="description" content="KaamKiSite - Ultra Modern Smart Tools & Calculators">
+<title>KaamKiSite 🚀 | Next-Gen Smart Tools</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 :root{
-  --bg:#050816;
-  --bg2:#0b1230;
-  --card:rgba(18,27,63,.72);
+  --bg:#030511;
+  --bg2:#0a0f29;
+  --card:rgba(15,23,54,0.75);
   --white:#fff;
-  --muted:#aab4d5;
-  --purple:#7c5cff;
-  --cyan:#25d9ff;
-  --pink:#ff62c7;
-  --border:rgba(255,255,255,.11);
+  --muted:#94a3b8;
+  --purple:#8a2be2;
+  --cyan:#00f0ff;
+  --pink:#ff007f;
+  --border:rgba(0,240,255,0.18);
 }
 
 html{scroll-behavior:smooth}
 
 body{
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:Inter,system-ui,-apple-system,sans-serif;
   background:var(--bg);
   color:var(--white);
   overflow-x:hidden;
 }
 
-/* SPACE */
+/* IMMERSIVE SPACE BACKGROUND */
 .space{
   position:fixed;
   inset:0;
   z-index:-10;
   background:
-  radial-gradient(circle at 15% 15%,rgba(124,92,255,.22),transparent 28%),
-  radial-gradient(circle at 85% 25%,rgba(37,217,255,.13),transparent 25%),
-  radial-gradient(circle at 50% 90%,rgba(255,98,199,.08),transparent 30%),
-  linear-gradient(180deg,#050816,#080d25 55%,#050816);
+    radial-gradient(circle at 20% 20%, rgba(138,43,226,0.25), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(0,240,255,0.18), transparent 30%),
+    radial-gradient(circle at 50% 85%, rgba(255,0,127,0.15), transparent 35%),
+    linear-gradient(180deg, #030511, #070b1f 60%, #030511);
 }
 
-.stars,
-.stars:before,
-.stars:after{
+.stars, .stars:before, .stars:after{
   content:"";
   position:absolute;
   inset:0;
   background-image:
-    radial-gradient(2px 2px at 10% 20%,#fff,transparent),
-    radial-gradient(1px 1px at 22% 70%,#fff,transparent),
-    radial-gradient(2px 2px at 35% 15%,#fff,transparent),
-    radial-gradient(1px 1px at 48% 45%,#fff,transparent),
-    radial-gradient(2px 2px at 60% 10%,#fff,transparent),
-    radial-gradient(1px 1px at 75% 65%,#fff,transparent),
-    radial-gradient(2px 2px at 90% 30%,#fff,transparent),
-    radial-gradient(1px 1px at 82% 90%,#fff,transparent),
-    radial-gradient(1px 1px at 40% 88%,#fff,transparent);
-  opacity:.5;
-  animation:starsMove 25s linear infinite;
+    radial-gradient(2px 2px at 15% 25%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 35% 65%, #00f0ff, transparent),
+    radial-gradient(2px 2px at 55% 15%, #fff, transparent),
+    radial-gradient(1px 1px at 75% 85%, #ff007f, transparent),
+    radial-gradient(2px 2px at 90% 40%, #fff, transparent);
+  opacity:0.6;
+  animation:starsMove 30s linear infinite;
 }
-
-.stars:before{
-  transform:scale(1.5);
-  opacity:.25;
-  animation-duration:40s;
-}
-
-.stars:after{
-  transform:scale(2);
-  opacity:.18;
-  animation-duration:60s;
-}
+.stars:before{transform:scale(1.3); opacity:0.3; animation-duration:45s;}
+.stars:after{transform:scale(1.8); opacity:0.2; animation-duration:65s;}
 
 @keyframes starsMove{
   from{transform:translateY(0)}
-  to{transform:translateY(-100px)}
+  to{transform:translateY(-120px)}
 }
 
 /* NAV */
 nav{
   width:min(1180px,92%);
-  margin:18px auto;
-  padding:14px 18px;
+  margin:20px auto;
+  padding:15px 22px;
   border:1px solid var(--border);
-  border-radius:22px;
-  background:rgba(5,9,28,.7);
-  backdrop-filter:blur(18px);
+  border-radius:24px;
+  background:rgba(5,9,28,0.8);
+  backdrop-filter:blur(20px);
   display:flex;
   align-items:center;
   justify-content:space-between;
   position:relative;
   z-index:20;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
 .logo{
-  font-size:22px;
+  font-size:24px;
   font-weight:900;
+  letter-spacing:-0.5px;
 }
-
-.logo span{color:var(--cyan)}
+.logo span{color:var(--cyan); text-shadow:0 0 15px rgba(0,240,255,0.5)}
 
 .nav-btn{
   color:#fff;
   text-decoration:none;
-  background:linear-gradient(135deg,var(--purple),#5540d5);
-  padding:10px 16px;
-  border-radius:13px;
+  background:linear-gradient(135deg, var(--purple), #5b13b9);
+  padding:10px 18px;
+  border-radius:14px;
   font-size:14px;
   font-weight:800;
+  box-shadow:0 0 20px rgba(138,43,226,0.4);
+  transition:0.3s;
 }
+.nav-btn:hover{transform:scale(1.05); box-shadow:0 0 25px rgba(0,240,255,0.6);}
 
-/* HERO */
+/* HERO SECTION */
 .hero{
   width:min(1180px,92%);
-  min-height:590px;
+  min-height:560px;
   margin:auto;
   display:grid;
-  grid-template-columns:1.1fr .9fr;
+  grid-template-columns:1.1fr 0.9fr;
   align-items:center;
-  gap:30px;
+  gap:40px;
 }
 
 .badge{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:8px 14px;
-  border:1px solid rgba(37,217,255,.25);
-  background:rgba(37,217,255,.07);
+  padding:8px 16px;
+  border:1px solid rgba(0,240,255,0.3);
+  background:rgba(0,240,255,0.08);
   border-radius:50px;
   color:#c6f6ff;
   font-size:13px;
-  margin-bottom:22px;
+  margin-bottom:24px;
+  box-shadow:0 0 15px rgba(0,240,255,0.15);
 }
-
 .badge i{
   width:8px;
   height:8px;
   border-radius:50%;
   background:var(--cyan);
-  box-shadow:0 0 18px var(--cyan);
+  box-shadow:0 0 12px var(--cyan);
 }
 
 h1{
-  font-size:clamp(43px,7vw,76px);
-  line-height:.98;
-  letter-spacing:-4px;
-  max-width:700px;
+  font-size:clamp(40px, 6.5vw, 72px);
+  line-height:1.02;
+  letter-spacing:-3px;
 }
 
 .gradient{
-  background:linear-gradient(90deg,#fff,#a08fff,#45e4ff);
+  background:linear-gradient(90deg, #fff, #a78bfa, var(--cyan));
   -webkit-background-clip:text;
   color:transparent;
+  filter:drop-shadow(0 0 30px rgba(0,240,255,0.3));
 }
 
 .hero p{
   color:var(--muted);
-  font-size:18px;
-  line-height:1.65;
-  max-width:620px;
-  margin:24px 0;
+  font-size:17px;
+  line-height:1.7;
+  max-width:600px;
+  margin:22px 0;
 }
 
-.actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
+.actions{display:flex; gap:14px; flex-wrap:wrap;}
 
-.primary,
-.secondary{
+.primary, .secondary{
   border:0;
   text-decoration:none;
-  padding:15px 21px;
-  border-radius:15px;
+  padding:15px 24px;
+  border-radius:16px;
   font-weight:800;
   cursor:pointer;
   font-size:15px;
+  transition:0.3s;
 }
 
 .primary{
   color:#fff;
-  background:linear-gradient(135deg,var(--purple),#4e3bcc);
-  box-shadow:0 12px 35px rgba(124,92,255,.3);
+  background:linear-gradient(135deg, var(--purple), var(--cyan));
+  box-shadow:0 10px 30px rgba(138,43,226,0.4);
 }
+.primary:hover{transform:translateY(-3px); box-shadow:0 15px 40px rgba(0,240,255,0.5);}
 
 .secondary{
   color:#fff;
   border:1px solid var(--border);
-  background:rgba(255,255,255,.06);
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
 }
+.secondary:hover{background:rgba(255,255,255,0.1); border-color:var(--cyan);}
 
-/* 3D MASCOT */
+/* BEAUTIFUL CUTE AI GIRL MASCOT */
 .mascot-area{
-  height:470px;
+  height:480px;
   position:relative;
   display:grid;
   place-items:center;
@@ -204,992 +191,596 @@ h1{
 
 .orbit{
   position:absolute;
-  width:350px;
-  height:350px;
-  border:1px solid rgba(124,92,255,.28);
+  width:380px;
+  height:380px;
+  border:1px dashed rgba(255,0,127,0.3);
   border-radius:50%;
-  transform:rotate(-18deg);
-  box-shadow:0 0 90px rgba(124,92,255,.12);
+  animation:spin 25s linear infinite;
+  box-shadow:0 0 50px rgba(255,0,127,0.1);
 }
+@keyframes spin{to{transform:rotate(360deg)}}
 
 .orbit:before{
   content:"";
   position:absolute;
-  width:12px;
-  height:12px;
+  width:14px;
+  height:14px;
   border-radius:50%;
-  background:var(--cyan);
-  box-shadow:0 0 25px var(--cyan);
-  left:35px;
-  top:55px;
+  background:var(--pink);
+  box-shadow:0 0 20px var(--pink), 0 0 40px var(--pink);
+  right:40px;
+  top:60px;
 }
 
-.mascot{
-  width:245px;
-  height:330px;
+.girl-container{
   position:relative;
-  animation:float 4s ease-in-out infinite;
+  width:240px;
+  height:360px;
+  animation:floatGirl 4s ease-in-out infinite;
+}
+@keyframes floatGirl{
+  0%, 100%{transform:translateY(0) rotate(1deg)}
+  50%{transform:translateY(-12px) rotate(-1deg)}
 }
 
-@keyframes float{
-  0%,100%{transform:translateY(0) rotate(1deg)}
-  50%{transform:translateY(-18px) rotate(-1deg)}
+/* SPEECH BUBBLE */
+.speech-bubble{
+  position:absolute;
+  top:-20px;
+  right:-30px;
+  background:rgba(15, 23, 54, 0.95);
+  border:1px solid var(--cyan);
+  padding:12px 18px;
+  border-radius:18px;
+  font-size:13px;
+  color:#fff;
+  box-shadow:0 10px 25px rgba(0,240,255,0.25);
+  animation:popBubble 3s ease-in-out infinite;
+  z-index:10;
+  backdrop-filter:blur(10px);
+  white-space:nowrap;
+}
+.speech-bubble:after{
+  content:'';
+  position:absolute;
+  bottom:-8px;
+  left:30px;
+  width:0;
+  height:0;
+  border-left:8px solid transparent;
+  border-right:8px solid transparent;
+  border-top:8px solid var(--cyan);
+}
+@keyframes popBubble{
+  0%, 100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
 }
 
-.glow{
+.glow-girl{
   position:absolute;
   width:280px;
   height:280px;
   border-radius:50%;
-  background:rgba(124,92,255,.18);
-  filter:blur(50px);
+  background:radial-gradient(circle, rgba(255,0,127,0.25) 0%, rgba(0,240,255,0.15) 60%, transparent 80%);
+  filter:blur(40px);
+  top:40px;
 }
 
-.head{
-  width:155px;
-  height:155px;
-  margin:auto;
+/* GIRL PARTS DESIGN */
+.hair-back{
+  position:absolute;
+  width:190px;
+  height:210px;
+  background:linear-gradient(145deg, #ff007f, #8a2be2);
+  top:25px;
+  left:25px;
+  border-radius:90px 90px 60px 60px;
+  z-index:1;
+}
+
+.face{
+  position:absolute;
+  width:140px;
+  height:150px;
+  background:linear-gradient(145deg, #ffe0d0, #f5c2a0);
+  top:40px;
+  left:50px;
+  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+  box-shadow:inset -5px -8px 15px rgba(200,100,90,0.2), 0 8px 20px rgba(0,0,0,0.3);
+  z-index:2;
+}
+
+/* EYES & BLINK */
+.eye-girl{
+  position:absolute;
+  top:62px;
+  width:16px;
+  height:20px;
+  background:#111;
   border-radius:50%;
-  position:relative;
-  background:linear-gradient(145deg,#ffe9dc,#efb9a5);
-  box-shadow:
-    inset -12px -18px 25px rgba(150,70,80,.12),
-    0 15px 30px rgba(0,0,0,.25);
+  animation:blink 4s infinite;
 }
-
-.hair{
+.eye-girl.left{left:35px;}
+.eye-girl.right{right:35px;}
+.eye-girl:before{
+  content:'';
   position:absolute;
-  inset:-13px -7px 28px;
-  border-radius:50% 50% 35% 35%;
-  background:linear-gradient(145deg,#3e2954,#211b36);
-  z-index:-1;
-}
-
-.hair:after{
-  content:"";
-  position:absolute;
-  width:55px;
-  height:95px;
-  right:-20px;
-  top:65px;
-  border-radius:50%;
-  background:#2b2141;
-  transform:rotate(-15deg);
-}
-
-.eye{
-  position:absolute;
-  top:72px;
-  width:12px;
-  height:17px;
-  background:#19182b;
-  border-radius:50%;
-}
-
-.eye.left{left:43px}
-.eye.right{right:43px}
-
-.eye:after{
-  content:"";
-  position:absolute;
-  width:3px;
-  height:5px;
+  top:3px;
+  left:3px;
+  width:5px;
+  height:6px;
   background:#fff;
   border-radius:50%;
-  left:3px;
-  top:3px;
+}
+@keyframes blink{
+  0%, 96%, 100%{transform:scaleY(1);}
+  98%{transform:scaleY(0.1);}
 }
 
-.smile{
+/* BLUSH */
+.blush{
   position:absolute;
-  width:34px;
-  height:18px;
-  border-bottom:3px solid #a95069;
+  top:78px;
+  width:18px;
+  height:9px;
+  background:rgba(255, 105, 180, 0.5);
   border-radius:50%;
-  left:60px;
-  top:103px;
+  filter:blur(2px);
+  z-index:3;
 }
+.blush.left{left:22px;}
+.blush.right{right:22px;}
 
-.body{
-  width:170px;
-  height:145px;
-  margin:-2px auto 0;
-  border-radius:50px 50px 28px 28px;
-  background:linear-gradient(145deg,#7c69ff,#342875);
-  position:relative;
-  box-shadow:0 20px 35px rgba(0,0,0,.25);
-}
-
-.collar{
+/* SMILE */
+.smile-girl{
   position:absolute;
-  width:62px;
-  height:28px;
+  bottom:36px;
   left:54px;
-  top:0;
-  border-radius:0 0 25px 25px;
-  background:#151a3b;
+  width:32px;
+  height:16px;
+  border-bottom:3px solid #d94f61;
+  border-radius:50%;
+  z-index:3;
 }
 
-/* SEARCH */
+/* HAIR FRONT (BANGS) */
+.hair-front{
+  position:absolute;
+  top:35px;
+  left:44px;
+  width:152px;
+  height:70px;
+  background:linear-gradient(145deg, #ff1493, #6a0dad);
+  border-radius:70px 70px 20px 20px;
+  z-index:4;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 75% 60%, 50% 100%, 25% 60%, 5% 100%);
+}
+
+/* HAIR PONYTails / BUNS */
+.hair-bun-left, .hair-bun-right{
+  position:absolute;
+  width:45px;
+  height:45px;
+  background:linear-gradient(135deg, #ff007f, #b5179e);
+  border-radius:50%;
+  z-index:1;
+}
+.hair-bun-left{top:30px; left:10px;}
+.hair-bun-right{top:30px; right:10px;}
+
+/* BODY / DRESS */
+.neck{
+  position:absolute;
+  top:180px;
+  left:102px;
+  width:36px;
+  height:25px;
+  background:#e8b595;
+  z-index:1;
+}
+
+.dress{
+  position:absolute;
+  top:195px;
+  left:35px;
+  width:170px;
+  height:150px;
+  background:linear-gradient(135deg, #00f0ff, #8a2be2);
+  border-radius:60px 60px 20px 20px;
+  z-index:2;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  display:grid;
+  place-items:center;
+}
+.dress-collar{
+  position:absolute;
+  top:0;
+  left:55px;
+  width:60px;
+  height:25px;
+  background:#05081a;
+  border-radius:0 0 20px 20px;
+}
+.heart-badge{
+  font-size:24px;
+  margin-top:20px;
+  filter:drop-shadow(0 0 10px #ff007f);
+  animation:heartBeat 1.5s ease-in-out infinite;
+}
+@keyframes heartBeat{
+  0%, 100%{transform:scale(1)}
+  50%{transform:scale(1.2)}
+}
+
+/* SEARCH AREA */
 .search-area{
-  width:min(850px,92%);
-  margin:0 auto 80px;
+  width:min(820px, 92%);
+  margin:20px auto 70px;
   text-align:center;
 }
-
-.search-area h2{
-  font-size:32px;
-  margin-bottom:10px;
-}
-
-.search-area p{
-  color:var(--muted);
-  margin-bottom:20px;
-}
+.search-area h2{font-size:32px; margin-bottom:8px;}
+.search-area p{color:var(--muted); margin-bottom:20px;}
 
 .search{
   display:flex;
-  padding:7px;
+  padding:8px;
   border:1px solid var(--border);
-  background:rgba(12,18,45,.85);
-  border-radius:18px;
+  background:rgba(10,15,37,0.9);
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5), inset 0 0 15px rgba(0,240,255,0.05);
 }
-
 .search input{
   flex:1;
-  min-width:0;
   border:0;
   outline:0;
   background:transparent;
   color:#fff;
-  padding:14px;
+  padding:14px 18px;
   font-size:16px;
 }
-
 .search button{
   border:0;
-  border-radius:13px;
-  padding:0 22px;
-  background:var(--purple);
+  border-radius:14px;
+  padding:0 25px;
+  background:linear-gradient(135deg, var(--purple), var(--cyan));
   color:#fff;
   font-weight:800;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(0,240,255,0.4);
+  transition:0.3s;
 }
+.search button:hover{opacity:0.9;}
 
-/* TOOLS */
+/* TOOLS GRID WITH 3D EFFECT */
 .tools{
-  width:min(1180px,92%);
+  width:min(1180px, 92%);
   margin:auto;
-  padding-bottom:80px;
+  padding-bottom:90px;
 }
-
-.section-title{
-  text-align:center;
-  margin-bottom:30px;
-}
-
-.section-title h2{
-  font-size:38px;
-}
-
-.section-title p{
-  color:var(--muted);
-  margin-top:8px;
-}
+.section-title{text-align:center; margin-bottom:40px;}
+.section-title h2{font-size:38px; letter-spacing:-1px;}
+.section-title p{color:var(--muted); margin-top:6px;}
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  grid-template-columns:repeat(3, 1fr);
+  gap:20px;
+  perspective: 1000px;
 }
 
 .tool-card{
   border:1px solid var(--border);
-  border-radius:23px;
-  padding:25px;
-  min-height:190px;
-  background:linear-gradient(145deg,rgba(22,31,68,.82),rgba(10,15,37,.8));
-  transition:.25s;
+  border-radius:24px;
+  padding:28px;
+  min-height:200px;
+  background:var(--card);
+  backdrop-filter:blur(15px);
+  transition:all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
   cursor:pointer;
   position:relative;
   overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 .tool-card:hover{
-  transform:translateY(-7px);
-  border-color:rgba(124,92,255,.6);
-  box-shadow:0 20px 45px rgba(0,0,0,.25);
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--cyan);
+  box-shadow: 0 20px 45px rgba(0,240,255,0.25), inset 0 0 20px rgba(0,240,255,0.1);
 }
 
-.icon{
-  font-size:34px;
-  margin-bottom:17px;
-}
+.icon{font-size:36px; margin-bottom:16px; filter:drop-shadow(0 0 10px rgba(255,255,255,0.3));}
+.tool-card h3{font-size:20px; margin-bottom:8px;}
+.tool-card p{color:var(--muted); line-height:1.5; font-size:14px;}
+.arrow{position:absolute; right:22px; bottom:20px; font-size:22px; color:var(--cyan); transition:0.3s;}
+.tool-card:hover .arrow{transform:translateX(5px);}
 
-.tool-card h3{
-  font-size:20px;
-  margin-bottom:8px;
-}
-
-.tool-card p{
-  color:var(--muted);
-  line-height:1.5;
-  font-size:14px;
-}
-
-.arrow{
-  position:absolute;
-  right:22px;
-  bottom:18px;
-  font-size:22px;
-}
-
-/* TOOL PANEL */
+/* TOOL PANELS / CALCULATORS */
 .tool-panel{
-  width:min(760px,92%);
+  width:min(760px, 92%);
   margin:0 auto 90px;
   display:none;
 }
-
 .tool-panel.active{
   display:block;
-  animation:appear .35s ease;
+  animation:fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-@keyframes appear{
-  from{opacity:0;transform:translateY(15px)}
-  to{opacity:1;transform:translateY(0)}
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px) scale(0.98)}
+  to{opacity:1; transform:translateY(0) scale(1)}
 }
 
 .calculator{
   border:1px solid var(--border);
-  border-radius:28px;
-  padding:30px;
-  background:rgba(14,21,51,.88);
-  backdrop-filter:blur(20px);
-  box-shadow:0 25px 70px rgba(0,0,0,.3);
+  border-radius:30px;
+  padding:35px;
+  background:rgba(10,16,40,0.92);
+  backdrop-filter:blur(25px);
+  box-shadow:0 25px 70px rgba(0,0,0,0.6), inset 0 0 30px rgba(0,240,255,0.05);
 }
+.calculator h2{font-size:30px; margin-bottom:6px;}
+.calculator .sub{color:var(--muted); margin-bottom:25px;}
 
-.calculator h2{
-  font-size:30px;
-  margin-bottom:8px;
-}
-
-.calculator .sub{
-  color:var(--muted);
-  margin-bottom:25px;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-}
-
-.field label{
-  display:block;
-  font-size:13px;
-  color:#b8c1dd;
-  margin-bottom:7px;
-}
-
-.field input,
-.field select{
+.form-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+.field label{display:block; font-size:13px; color:#cbd5e1; margin-bottom:8px;}
+.field input, .field select{
   width:100%;
-  padding:14px;
+  padding:14px 16px;
   border:1px solid var(--border);
-  border-radius:13px;
-  background:#090f29;
+  border-radius:14px;
+  background:#05081a;
   color:#fff;
   outline:0;
   font-size:15px;
+  transition:0.3s;
+}
+.field input:focus, .field select:focus{
+  border-color:var(--cyan);
+  box-shadow:0 0 15px rgba(0,240,255,0.2);
 }
 
 .calc-btn{
   width:100%;
-  margin-top:18px;
-  padding:15px;
+  margin-top:20px;
+  padding:16px;
   border:0;
   border-radius:14px;
-  background:linear-gradient(135deg,var(--purple),#4e3bcc);
+  background:linear-gradient(135deg, var(--purple), var(--cyan));
   color:#fff;
   font-size:16px;
   font-weight:800;
   cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,240,255,0.3);
+  transition:0.3s;
 }
+.calc-btn:hover{transform:translateY(-2px); box-shadow:0 15px 35px rgba(0,240,255,0.5);}
 
 .result{
-  margin-top:20px;
-  padding:20px;
-  border-radius:17px;
-  background:rgba(37,217,255,.07);
-  border:1px solid rgba(37,217,255,.16);
+  margin-top:22px;
+  padding:22px;
+  border-radius:18px;
+  background:rgba(0,240,255,0.06);
+  border:1px solid rgba(0,240,255,0.2);
   display:none;
+  box-shadow:inset 0 0 15px rgba(0,240,255,0.08);
 }
-
-.result.show{display:block}
-
-.result strong{
-  font-size:25px;
-  display:block;
-  margin-bottom:7px;
-}
-
-.result span{
-  color:var(--muted);
-}
+.result strong{font-size:24px; display:block; margin-bottom:6px; color:var(--cyan);}
+.result span{color:var(--muted); font-size:14px;}
 
 .close-tool{
   display:block;
-  margin:15px auto 0;
+  margin:18px auto 0;
   background:transparent;
-  color:#aeb8d8;
+  color:var(--muted);
   border:0;
   cursor:pointer;
+  font-size:14px;
+  transition:0.3s;
 }
+.close-tool:hover{color:var(--cyan);}
 
-/* FEATURE */
+/* FEATURE BANNER */
 .feature{
-  width:min(1180px,92%);
-  margin:0 auto 80px;
-  padding:42px 25px;
+  width:min(1180px, 92%);
+  margin:0 auto 90px;
+  padding:45px 30px;
   border:1px solid var(--border);
-  border-radius:28px;
+  border-radius:30px;
   text-align:center;
-  background:linear-gradient(120deg,rgba(124,92,255,.12),rgba(37,217,255,.05));
+  background:linear-gradient(135deg, rgba(138,43,226,0.12), rgba(0,240,255,0.05));
+  box-shadow:0 20px 50px rgba(0,0,0,0.4);
 }
-
-.feature h2{
-  font-size:32px;
-  margin-bottom:12px;
-}
-
-.feature p{
-  color:var(--muted);
-  max-width:720px;
-  margin:auto;
-  line-height:1.7;
-}
+.feature h2{font-size:32px; margin-bottom:12px;}
+.feature p{color:var(--muted); max-width:720px; margin:auto; line-height:1.7;}
 
 footer{
   border-top:1px solid var(--border);
-  padding:30px 5%;
+  padding:35px 5%;
   text-align:center;
-  color:#7f8aad;
+  color:var(--muted);
   font-size:13px;
+  background:rgba(3,5,17,0.8);
 }
 
-/* MOBILE */
+/* RESPONSIVE */
 @media(max-width:800px){
-  .hero{
-    grid-template-columns:1fr;
-    text-align:center;
-    padding-top:40px;
-  }
-
-  .hero p{
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-  .actions{justify-content:center}
-
-  .mascot-area{
-    height:380px;
-    transform:scale(.82);
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-
-  h1{
-    letter-spacing:-2.5px;
-  }
-
-  .section-title h2{
-    font-size:31px;
-  }
-}
-
-@media(max-width:480px){
-  nav{
-    margin-top:10px;
-  }
-
-  .logo{
-    font-size:19px;
-  }
-
-  .nav-btn{
-    padding:8px 11px;
-  }
-
-  .search button{
-    padding:0 15px;
-  }
-
-  .calculator{
-    padding:22px;
-  }
+  .hero{grid-template-columns:1fr; text-align:center; padding-top:20px;}
+  .hero p{margin-left:auto; margin-right:auto;}
+  .actions{justify-content:center;}
+  .mascot-area{height:380px; transform:scale(0.85);}
+  .grid{grid-template-columns:1fr;}
+  .form-grid{grid-template-columns:1fr;}
+  h1{letter-spacing:-2px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="space">
-  <div class="stars"></div>
-</div>
+<div class="space"><div class="stars"></div></div>
 
 <!-- NAV -->
 <nav>
   <div class="logo">KaamKi<span>Site</span> 🚀</div>
-  <a href="#tools" class="nav-btn">Tools खोलें</a>
+  <a href="#tools" class="nav-btn">Explore Tools</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-
   <div>
-    <div class="badge">
-      <i></i>
-      Smart tools • Simple experience
-    </div>
-
-    <h1>
-      आपका काम,
-      <span class="gradient">अब आसान।</span>
-    </h1>
-
-    <p>
-      रोज़मर्रा के useful online tools एक ही जगह।
-      Fast, simple और बिना किसी confusion के।
-      अपना tool चुनिए और काम शुरू कीजिए।
-    </p>
-
+    <div class="badge"><i></i> Next-Gen Smart Tools • High Performance</div>
+    <h1>आपका काम, <span class="gradient">अब सुपरफास्ट।</span></h1>
+    <p>रोज़मर्रा के सभी useful calculation tools अब एक ही शानदार और futuristic स्पेस प्लेटफॉर्म पर। बिना किसी रुकावट के तेज परिणाम पाएं।</p>
     <div class="actions">
       <a href="#tools" class="primary">🚀 Start Exploring</a>
       <a href="#search" class="secondary">🔎 Tool खोजें</a>
     </div>
   </div>
 
-  <!-- MASCOT -->
   <div class="mascot-area">
-    <div class="glow"></div>
+    <div class="glow-girl"></div>
     <div class="orbit"></div>
-
-    <div class="mascot">
-      <div class="head">
-        <div class="hair"></div>
-        <div class="eye left"></div>
-        <div class="eye right"></div>
-        <div class="smile"></div>
+    
+    <div class="girl-container">
+      <div class="speech-bubble">✨ Welcome to KaamKiSite! 💖</div>
+      
+      <div class="hair-bun-left"></div>
+      <div class="hair-bun-right"></div>
+      <div class="hair-back"></div>
+      
+      <div class="face">
+        <div class="blush left"></div>
+        <div class="blush right"></div>
+        <div class="eye-girl left"></div>
+        <div class="eye-girl right"></div>
+        <div class="smile-girl"></div>
       </div>
-
-      <div class="body">
-        <div class="collar"></div>
+      
+      <div class="hair-front"></div>
+      <div class="neck"></div>
+      
+      <div class="dress">
+        <div class="dress-collar"></div>
+        <div class="heart-badge">💖</div>
       </div>
     </div>
   </div>
-
 </section>
 
 <!-- SEARCH -->
 <section class="search-area" id="search">
-  <h2>आज क्या करना है? 🔎</h2>
-  <p>Tool का नाम लिखकर तुरंत खोजिए।</p>
-
+  <h2>आज क्या कैलकुलेट करना है? 🔎</h2>
+  <p>तुरंत खोजने के लिए नीचे टूल का नाम टाइप करें।</p>
   <div class="search">
-    <input id="searchInput" type="text"
-           placeholder="जैसे Age Calculator, EMI...">
+    <input id="searchInput" type="text" placeholder="जैसे Age Calculator, EMI, Percentage...">
     <button onclick="searchTools()">Search</button>
   </div>
 </section>
 
 <!-- TOOLS -->
 <section class="tools" id="tools">
-
   <div class="section-title">
-    <h2>Popular Tools 🛠️</h2>
-    <p>काम की चीज़ें — एक ही जगह।</p>
+    <h2>Popular Utilities 🛠️</h2>
+    <p>आपके सभी स्मार्ट टूल्स एक ही जगह पर।</p>
   </div>
 
   <div class="grid" id="toolGrid">
-
-    <div class="tool-card"
-         data-name="age calculator age">
+    <div class="tool-card" data-name="age calculator age">
       <div class="icon">🎂</div>
       <h3>Age Calculator</h3>
-      <p>अपनी exact age साल, महीने और दिनों में जानें।</p>
+      <p>अपनी exact age साल, महीने और दिनों में तुरंत calculate करें।</p>
       <div class="arrow">→</div>
     </div>
 
-    <div class="tool-card"
-         data-name="emi calculator emi loan">
+    <div class="tool-card" data-name="emi calculator emi loan">
       <div class="icon">💰</div>
       <h3>EMI Calculator</h3>
-      <p>Loan की EMI और total payment calculate करें।</p>
+      <p>लोन की मंथली EMI और कुल ब्याज की सटीक गणना करें।</p>
       <div class="arrow">→</div>
     </div>
 
-    <div class="tool-card"
-         data-name="percentage calculator percentage">
+    <div class="tool-card" data-name="percentage calculator percentage">
       <div class="icon">📊</div>
       <h3>Percentage</h3>
-      <p>Percentage calculation कुछ seconds में करें।</p>
+      <p>किसी भी नंबर का प्रतिशत कुछ ही सेकंड्स में निकालें।</p>
       <div class="arrow">→</div>
     </div>
 
-    <div class="tool-card"
-         data-name="date day calculator date">
+    <div class="tool-card" data-name="date day calculator date">
       <div class="icon">📅</div>
       <h3>Date & Day</h3>
-      <p>दो dates के बीच का difference और days जानें।</p>
+      <p>दो तारीखों के बीच का सटीक दिनों का अंतर जानें।</p>
       <div class="arrow">→</div>
     </div>
 
-    <div class="tool-card"
-         data-name="unit converter converter">
+    <div class="tool-card" data-name="unit converter converter">
       <div class="icon">🔄</div>
       <h3>Unit Converter</h3>
-      <p>Length और weight जैसी units आसानी से convert करें।</p>
+      <p>लंबाई, वजन और अन्य मानक इकाइयों को आसानी से बदलें।</p>
       <div class="arrow">→</div>
     </div>
 
-    <div class="tool-card"
-         data-name="pdf tools pdf">
+    <div class="tool-card" data-name="pdf tools pdf">
       <div class="icon">📄</div>
       <h3>PDF Tools</h3>
-      <p>PDF से जुड़े useful tools जल्द यहाँ मिलेंगे।</p>
+      <p>डॉक्यूमेंट्स और पीडीएफ से जुड़े आधुनिक टूल्स जल्द आ रहे हैं।</p>
       <div class="arrow">→</div>
     </div>
-
   </div>
 </section>
 
-<!-- AGE CALCULATOR -->
+<!-- AGE CALCULATOR PANEL -->
 <section class="tool-panel" id="ageTool">
   <div class="calculator">
     <h2>🎂 Age Calculator</h2>
-    <p class="sub">अपनी exact उम्र calculate करें।</p>
-
+    <p class="sub">अपनी सही उम्र जांचें।</p>
     <div class="form-grid">
-      <div class="field">
-        <label>Date of Birth</label>
-        <input type="date" id="dob">
-      </div>
-
-      <div class="field">
-        <label>Calculate Until</label>
-        <input type="date" id="ageUntil">
-      </div>
+      <div class="field"><label>Date of Birth</label><input type="date" id="dob"></div>
+      <div class="field"><label>Calculate Until</label><input type="date" id="ageUntil"></div>
     </div>
-
-    <button class="calc-btn" onclick="calculateAge()">
-      Calculate Age 🚀
-    </button>
-
+    <button class="calc-btn" onclick="calculateAge()">Calculate Age 🚀</button>
     <div class="result" id="ageResult"></div>
-
-    <button class="close-tool" onclick="closeTools()">
-      ← Tools पर वापस जाएँ
-    </button>
+    <button class="close-tool" onclick="closeTools()">← Tools पर वापस जाएं</button>
   </div>
 </section>
 
-<!-- EMI -->
+<!-- EMI PANEL -->
 <section class="tool-panel" id="emiTool">
   <div class="calculator">
     <h2>💰 EMI Calculator</h2>
-    <p class="sub">अपने loan की monthly EMI जानें।</p>
-
+    <p class="sub">लोन रीपेमेंट डिटेल्स कैलकुलेट करें।</p>
     <div class="form-grid">
-
-      <div class="field">
-        <label>Loan Amount (₹)</label>
-        <input type="number" id="loanAmount"
-               placeholder="500000">
-      </div>
-
-      <div class="field">
-        <label>Interest Rate (% yearly)</label>
-        <input type="number" id="interest"
-               placeholder="8.5" step="0.01">
-      </div>
-
-      <div class="field">
-        <label>Loan Tenure (Years)</label>
-        <input type="number" id="years"
-               placeholder="5">
-      </div>
-
+      <div class="field"><label>Loan Amount (₹)</label><input type="number" id="loanAmount" placeholder="500000"></div>
+      <div class="field"><label>Interest Rate (% yearly)</label><input type="number" id="interest" placeholder="8.5" step="0.01"></div>
+      <div class="field" style="grid-column: span 2;"><label>Loan Tenure (Years)</label><input type="number" id="years" placeholder="5"></div>
     </div>
-
-    <button class="calc-btn" onclick="calculateEMI()">
-      Calculate EMI 💸
-    </button>
-
+    <button class="calc-btn" onclick="calculateEMI()">Calculate EMI 💸</button>
     <div class="result" id="emiResult"></div>
-
-    <button class="close-tool" onclick="closeTools()">
-      ← Tools पर वापस जाएँ
-    </button>
+    <button class="close-tool" onclick="closeTools()">← Tools पर वापस जाएं</button>
   </div>
 </section>
 
-<!-- PERCENTAGE -->
+<!-- PERCENTAGE PANEL -->
 <section class="tool-panel" id="percentageTool">
   <div class="calculator">
     <h2>📊 Percentage Calculator</h2>
-    <p class="sub">किसी भी number का percentage तुरंत निकालें।</p>
-
+    <p class="sub">प्रतिशत निकालें आसानी से।</p>
     <div class="form-grid">
-
-      <div class="field">
-        <label>Percentage (%)</label>
-        <input type="number" id="percent"
-               placeholder="20">
-      </div>
-
-      <div class="field">
-        <label>Number</label>
-        <input type="number" id="percentNumber"
-               placeholder="500">
-      </div>
-
+      <div class="field"><label>Percentage (%)</label><input type="number" id="percent" placeholder="20"></div>
+      <div class="field"><label>Number</label><input type="number" id="percentNumber" placeholder="500"></div>
     </div>
-
-    <button class="calc-btn" onclick="calculatePercentage()">
-      Calculate %
-    </button>
-
+    <button class="calc-btn" onclick="calculatePercentage()">Calculate %</button>
     <div class="result" id="percentageResult"></div>
-
-    <button class="close-tool" onclick="closeTools()">
-      ← Tools पर वापस जाएँ
-    </button>
+    <button class="close-tool" onclick="closeTools()">← Tools पर वापस जाएं</button>
   </div>
 </section>
 
-<!-- DATE -->
+<!-- DATE PANEL -->
 <section class="tool-panel" id="dateTool">
   <div class="calculator">
     <h2>📅 Date Difference</h2>
-    <p class="sub">दो dates के बीच कितने दिन हैं, जानें।</p>
-
+    <p class="sub">दो तारीखों के बीच का अंतर जानें।</p>
     <div class="form-grid">
-
-      <div class="field">
-        <label>Start Date</label>
-        <input type="date" id="startDate">
-      </div>
-
-      <div class="field">
-        <label>End Date</label>
-        <input type="date" id="endDate">
-      </div>
-
+      <div class="field"><label>Start Date</label><input type="date" id="startDate"></div>
+      <div class="field"><label>End Date</label><input type="date" id="endDate"></div>
     </div>
-
-    <button class="calc-btn" onclick="calculateDateDifference()">
-      Calculate Days 📅
-    </button>
-
-    <div class="result" id="dateResult"></div>
-
-    <button class="close-tool" onclick="closeTools()">
-      ← Tools पर वापस जाएँ
-    </button>
-  </div>
-</section>
-
-<!-- UNIT -->
-<section class="tool-panel" id="unitTool">
-  <div class="calculator">
-    <h2>🔄 Unit Converter</h2>
-    <p class="sub">Common units को आसानी से convert करें।</p>
-
-    <div class="form-grid">
-
-      <div class="field">
-        <label>Value</label>
-        <input type="number" id="unitValue"
-               placeholder="100">
-      </div>
-
-      <div class="field">
-        <label>Conversion</label>
-        <select id="unitType">
-          <option value="km-miles">Kilometer → Miles</option>
-          <option value="miles-km">Miles → Kilometer</option>
-          <option value="kg-lb">Kilogram → Pound</option>
-          <option value="lb-kg">Pound → Kilogram</option>
-          <option value="meter-feet">Meter → Feet</option>
-          <option value="feet-meter">Feet → Meter</option>
-          <option value="cm-inch">Centimeter → Inch</option>
-          <option value="inch-cm">Inch → Centimeter</option>
-        </select>
-      </div>
-
-    </div>
-
-    <button class="calc-btn" onclick="convertUnit()">
-      Convert 🔄
-    </button>
-
-    <div class="result" id="unitResult"></div>
-
-    <button class="close-tool" onclick="closeTools()">
-      ← Tools पर वापस जाएँ
-    </button>
-  </div>
-</section>
-
-<!-- FEATURE -->
-<section class="feature">
-  <h2>🌌 काम की दुनिया में आपका स्वागत है</h2>
-  <p>
-    KaamKiSite का goal simple है — रोज़मर्रा के छोटे-बड़े
-    calculations और useful कामों के लिए आपको अलग-अलग websites
-    खोजने की जरूरत न पड़े।
-  </p>
-</section>
-
-<footer>
-  © 2026 KaamKiSite 🚀 • Simple. Fast. Useful.
-</footer>
-
-<script>
-/* DEFAULT DATE */
-const today = new Date().toISOString().split("T")[0];
-document.getElementById("ageUntil").value = today;
-
-/* TOOL CARDS */
-const cards = document.querySelectorAll(".tool-card");
-
-cards.forEach(card => {
-  card.addEventListener("click", () => {
-    const name = card.dataset.name;
-    closeTools();
-
-    if(name.includes("age")){
-      openTool("ageTool");
-    }
-    else if(name.includes("emi")){
-      openTool("emiTool");
-    }
-    else if(name.includes("percentage")){
-      openTool("percentageTool");
-    }
-    else if(name.includes("date")){
-      openTool("dateTool");
-    }
-    else if(name.includes("unit")){
-      openTool("unitTool");
-    }
-    else if(name.includes("pdf")){
-      alert("PDF Tools जल्द आ रहे हैं 🚀");
-      return;
-    }
-
-    setTimeout(() => {
-      document.querySelector(".tool-panel.active")
-        ?.scrollIntoView({behavior:"smooth",block:"start"});
-    },100);
-  });
-});
-
-function openTool(id){
-  document.getElementById(id).classList.add("active");
-}
-
-function closeTools(){
-  document.querySelectorAll(".tool-panel")
-    .forEach(x=>x.classList.remove("active"));
-}
-
-/* SEARCH */
-function searchTools(){
-  const input = document.getElementById("searchInput").value.toLowerCase().trim();
-
-  cards.forEach(card=>{
-    const name = card.dataset.name;
-    if(!input || name.includes(input)){
-      card.style.display = "block";
-    }else{
-      card.style.display = "none";
-    }
-  });
-
-  document.getElementById("tools").scrollIntoView({behavior:"smooth"});
-}
-
-document.getElementById("searchInput").addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    searchTools();
-  }
-});
-
-/* AGE CALCULATOR */
-function calculateAge() {
-  const dob = document.getElementById("dob").value;
-  const until = document.getElementById("ageUntil").value;
-  const res = document.getElementById("ageResult");
-
-  if (!dob || !until) {
-    res.style.display = "block";
-    res.innerHTML = "<span>कृपया दोनों तारीखें चुनें।</span>";
-    return;
-  }
-
-  const birthDate = new Date(dob);
-  const untilDate = new Date(until);
-
-  if (birthDate > untilDate) {
-    res.style.display = "block";
-    res.innerHTML = "<span>Birth date, calculate date से बाद की नहीं हो सकती।</span>";
-    return;
-  }
-
-  let years = untilDate.getFullYear() - birthDate.getFullYear();
-  let months = untilDate.getMonth() - birthDate.getMonth();
-  let days = untilDate.getDate() - birthDate.getDate();
-
-  if (days < 0) {
-    months--;
-    const prevMonth = new Date(untilDate.getFullYear(), untilDate.getMonth(), 0);
-    days += prevMonth.getDate();
-  }
-
-  if (months < 0) {
-    years--;
-    months += 12;
-  }
-
-  res.style.display = "block";
-  res.innerHTML = `<strong>${years} वर्ष, ${months} महीने, ${days} दिन</strong><span>Exact Age</span>`;
-}
-
-/* EMI CALCULATOR */
-function calculateEMI() {
-  const p = parseFloat(document.getElementById("loanAmount").value);
-  const rAnnual = parseFloat(document.getElementById("interest").value);
-  const years = parseFloat(document.getElementById("years").value);
-  const res = document.getElementById("emiResult");
-
-  if (!p || !rAnnual || !years) {
-    res.style.display = "block";
-    res.innerHTML = "<span>कृपया सभी सही वैल्यू भरें।</span>";
-    return;
-  }
-
-  const r = rAnnual / 12 / 100;
-  const n = years * 12;
-
-  const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-  const totalPayment = emi * n;
-  const totalInterest = totalPayment - p;
-
-  res.style.display = "block";
-  res.innerHTML = `<strong>₹ ${Math.round(emi).toLocaleString()} / महीना</strong><span>Total Interest: ₹ ${Math.round(totalInterest).toLocaleString()} | Total Payment: ₹ ${Math.round(totalPayment).toLocaleString()}</span>`;
-}
-
-/* PERCENTAGE CALCULATOR */
-function calculatePercentage() {
-  const p = parseFloat(document.getElementById("percent").value);
-  const num = parseFloat(document.getElementById("percentNumber").value);
-  const res = document.getElementById("percentageResult");
-
-  if (isNaN(p) || isNaN(num)) {
-    res.style.display = "block";
-    res.innerHTML = "<span>कृपया दोनों नंबर भरें।</span>";
-    return;
-  }
-
-  const val = (p * num) / 100;
-  res.style.display = "block";
-  res.innerHTML = `<strong>${val}</strong><span>${p}% of ${num}</span>`;
-}
-
-/* DATE DIFFERENCE */
-function calculateDateDifference() {
-  const start = document.getElementById("startDate").value;
-  const end = document.getElementById("endDate").value;
-  const res = document.getElementById("dateResult");
-
-  if (!start || !end) {
-    res.style.display = "block";
-    res.innerHTML = "<span>कृपया दोनों तारीखें चुनें।</span>";
-    return;
-  }
-
-  const d1 = new Date(start);
-  const d2 = new Date(end);
-  const diffTime = Math.abs(d2 - d1);
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-  res.style.display = "block";
-  res.innerHTML = `<strong>${diffDays} दिन</strong><span>कुल अंतर</span>`;
-}
-
-/* UNIT CONVERTER */
-function convertUnit() {
-  const val = parseFloat(document.getElementById("unitValue").value);
-  const type = document.getElementById("unitType").value;
-  const res = document.getElementById("unitResult");
-
-  if (isNaN(val)) {
-    res.style.display = "block";
-    res.innerHTML = "<span>कृपया वैध वैल्यू दर्ज करें।</span>";
-    return;
-  }
-
-  let ans = 0;
-  let text = "";
-
-  switch (type) {
-    case "km-miles":
-      ans = val * 0.621371;
-      text = `${val} Kilometer = ${ans.toFixed(4)} Miles`;
-      break;
-    case "miles-km":
-      ans = val * 1.60934;
-      text = `${val} Miles = ${ans.toFixed(4)} Kilometer`;
-      break;
-    case "kg-lb":
-      ans = val * 2.20462;
-      text = `${val} Kilogram = ${ans.toFixed(4)} Pound`;
-      break;
-    case "lb-kg":
-      ans = val * 0.453592;
-      text = `${val} Pound = ${ans.toFixed(4)} Kilogram`;
-      break;
-    case "meter-feet":
-      ans = val * 3.28084;
-      text = `${val} Meter = ${ans.toFixed(4)} Feet`;
-      break;
-    case "feet-meter":
-      ans = val * 0.3048;
-      text = `${val} Feet = ${ans.toFixed(4)} Meter`;
-      break;
-    case "cm-inch":
-      ans = val * 0.393701;
-      text = `${val} Centimeter = ${ans.toFixed(4)} Inch`;
-      break;
-    case "inch-cm":
-      ans = val * 2.54;
-      text = `${val} Inch = ${ans.toFixed(4)} Centimeter`;
-      break;
-  }
-
-  res.style.display = "block";
-  res.innerHTML = `<strong>${text}</strong><span>Converted Result</span>`;
-}
-</script>
-
-</body>
-</html>
+    <button class="calc-btn" onclick="calculateDateDifference()">Calculate Day
