@@ -181,7 +181,7 @@ h1{
 }
 .secondary:hover{background:rgba(255,255,255,0.1); border-color:var(--cyan);}
 
-/* BEAUTIFUL CUTE AI GIRL MASCOT */
+/* ANIME MASCOT AREA */
 .mascot-area{
   height:480px;
   position:relative;
@@ -212,25 +212,36 @@ h1{
   top:60px;
 }
 
-.girl-container{
+.anime-girl-container{
   position:relative;
-  width:240px;
-  height:360px;
+  width:280px;
+  height:420px;
   animation:floatGirl 4s ease-in-out infinite;
+  display:grid;
+  place-items:center;
 }
 @keyframes floatGirl{
-  0%, 100%{transform:translateY(0) rotate(1deg)}
-  50%{transform:translateY(-12px) rotate(-1deg)}
+  0%, 100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+.anime-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+  border: 2px solid var(--cyan);
+  box-shadow: 0 15px 35px rgba(0,240,255,0.3), 0 0 25px rgba(255,0,127,0.2);
 }
 
 /* SPEECH BUBBLE */
 .speech-bubble{
   position:absolute;
-  top:-20px;
-  right:-30px;
+  top:-25px;
+  right:-10px;
   background:rgba(15, 23, 54, 0.95);
   border:1px solid var(--cyan);
-  padding:12px 18px;
+  padding:10px 16px;
   border-radius:18px;
   font-size:13px;
   color:#fff;
@@ -264,152 +275,6 @@ h1{
   background:radial-gradient(circle, rgba(255,0,127,0.25) 0%, rgba(0,240,255,0.15) 60%, transparent 80%);
   filter:blur(40px);
   top:40px;
-}
-
-/* GIRL PARTS DESIGN */
-.hair-back{
-  position:absolute;
-  width:190px;
-  height:210px;
-  background:linear-gradient(145deg, #ff007f, #8a2be2);
-  top:25px;
-  left:25px;
-  border-radius:90px 90px 60px 60px;
-  z-index:1;
-}
-
-.face{
-  position:absolute;
-  width:140px;
-  height:150px;
-  background:linear-gradient(145deg, #ffe0d0, #f5c2a0);
-  top:40px;
-  left:50px;
-  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
-  box-shadow:inset -5px -8px 15px rgba(200,100,90,0.2), 0 8px 20px rgba(0,0,0,0.3);
-  z-index:2;
-}
-
-/* EYES & BLINK */
-.eye-girl{
-  position:absolute;
-  top:62px;
-  width:16px;
-  height:20px;
-  background:#111;
-  border-radius:50%;
-  animation:blink 4s infinite;
-}
-.eye-girl.left{left:35px;}
-.eye-girl.right{right:35px;}
-.eye-girl:before{
-  content:'';
-  position:absolute;
-  top:3px;
-  left:3px;
-  width:5px;
-  height:6px;
-  background:#fff;
-  border-radius:50%;
-}
-@keyframes blink{
-  0%, 96%, 100%{transform:scaleY(1);}
-  98%{transform:scaleY(0.1);}
-}
-
-/* BLUSH */
-.blush{
-  position:absolute;
-  top:78px;
-  width:18px;
-  height:9px;
-  background:rgba(255, 105, 180, 0.5);
-  border-radius:50%;
-  filter:blur(2px);
-  z-index:3;
-}
-.blush.left{left:22px;}
-.blush.right{right:22px;}
-
-/* SMILE */
-.smile-girl{
-  position:absolute;
-  bottom:36px;
-  left:54px;
-  width:32px;
-  height:16px;
-  border-bottom:3px solid #d94f61;
-  border-radius:50%;
-  z-index:3;
-}
-
-/* HAIR FRONT (BANGS) */
-.hair-front{
-  position:absolute;
-  top:35px;
-  left:44px;
-  width:152px;
-  height:70px;
-  background:linear-gradient(145deg, #ff1493, #6a0dad);
-  border-radius:70px 70px 20px 20px;
-  z-index:4;
-  clip-path: polygon(0 0, 100% 0, 95% 100%, 75% 60%, 50% 100%, 25% 60%, 5% 100%);
-}
-
-/* HAIR PONYTails / BUNS */
-.hair-bun-left, .hair-bun-right{
-  position:absolute;
-  width:45px;
-  height:45px;
-  background:linear-gradient(135deg, #ff007f, #b5179e);
-  border-radius:50%;
-  z-index:1;
-}
-.hair-bun-left{top:30px; left:10px;}
-.hair-bun-right{top:30px; right:10px;}
-
-/* BODY / DRESS */
-.neck{
-  position:absolute;
-  top:180px;
-  left:102px;
-  width:36px;
-  height:25px;
-  background:#e8b595;
-  z-index:1;
-}
-
-.dress{
-  position:absolute;
-  top:195px;
-  left:35px;
-  width:170px;
-  height:150px;
-  background:linear-gradient(135deg, #00f0ff, #8a2be2);
-  border-radius:60px 60px 20px 20px;
-  z-index:2;
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
-  display:grid;
-  place-items:center;
-}
-.dress-collar{
-  position:absolute;
-  top:0;
-  left:55px;
-  width:60px;
-  height:25px;
-  background:#05081a;
-  border-radius:0 0 20px 20px;
-}
-.heart-badge{
-  font-size:24px;
-  margin-top:20px;
-  filter:drop-shadow(0 0 10px #ff007f);
-  animation:heartBeat 1.5s ease-in-out infinite;
-}
-@keyframes heartBeat{
-  0%, 100%{transform:scale(1)}
-  50%{transform:scale(1.2)}
 }
 
 /* SEARCH AREA */
@@ -451,7 +316,7 @@ h1{
 }
 .search button:hover{opacity:0.9;}
 
-/* TOOLS GRID WITH 3D EFFECT */
+/* TOOLS GRID */
 .tools{
   width:min(1180px, 92%);
   margin:auto;
@@ -465,7 +330,6 @@ h1{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
   gap:20px;
-  perspective: 1000px;
 }
 
 .tool-card{
@@ -494,7 +358,7 @@ h1{
 .arrow{position:absolute; right:22px; bottom:20px; font-size:22px; color:var(--cyan); transition:0.3s;}
 .tool-card:hover .arrow{transform:translateX(5px);}
 
-/* TOOL PANELS / CALCULATORS */
+/* TOOL PANELS */
 .tool-panel{
   width:min(760px, 92%);
   margin:0 auto 90px;
@@ -640,28 +504,10 @@ footer{
     <div class="glow-girl"></div>
     <div class="orbit"></div>
     
-    <div class="girl-container">
-      <div class="speech-bubble">✨ Welcome to KaamKiSite! 💖</div>
-      
-      <div class="hair-bun-left"></div>
-      <div class="hair-bun-right"></div>
-      <div class="hair-back"></div>
-      
-      <div class="face">
-        <div class="blush left"></div>
-        <div class="blush right"></div>
-        <div class="eye-girl left"></div>
-        <div class="eye-girl right"></div>
-        <div class="smile-girl"></div>
-      </div>
-      
-      <div class="hair-front"></div>
-      <div class="neck"></div>
-      
-      <div class="dress">
-        <div class="dress-collar"></div>
-        <div class="heart-badge">💖</div>
-      </div>
+    <div class="anime-girl-container">
+      <div class="speech-bubble">✨ Welcome! 💖</div>
+      <!-- Aapki di gayi anime image yahan set ki gayi hai -->
+      <img src="1000038524.webp" alt="Anime Mascot" class="anime-img">
     </div>
   </div>
 </section>
@@ -783,4 +629,87 @@ footer{
       <div class="field"><label>Start Date</label><input type="date" id="startDate"></div>
       <div class="field"><label>End Date</label><input type="date" id="endDate"></div>
     </div>
-    <button class="calc-btn" onclick="calculateDateDifference()">Calculate Day
+    <button class="calc-btn" onclick="calculateDateDifference()">Calculate Days 📅</button>
+    <div class="result" id="dateResult"></div>
+    <button class="close-tool" onclick="closeTools()">← Tools पर वापस जाएं</button>
+  </div>
+</section>
+
+<!-- UNIT PANEL -->
+<section class="tool-panel" id="unitTool">
+  <div class="calculator">
+    <h2>🔄 Unit Converter</h2>
+    <p class="sub">विभिन्न यूनिट्स को बदलें।</p>
+    <div class="form-grid">
+      <div class="field"><label>Value</label><input type="number" id="unitValue" placeholder="100"></div>
+      <div class="field">
+        <label>Conversion</label>
+        <select id="unitType">
+          <option value="km-miles">Kilometer → Miles</option>
+          <option value="miles-km">Miles → Kilometer</option>
+          <option value="kg-lb">Kilogram → Pound</option>
+          <option value="lb-kg">Pound → Kilogram</option>
+          <option value="meter-feet">Meter → Feet</option>
+          <option value="feet-meter">Feet → Meter</option>
+          <option value="cm-inch">Centimeter → Inch</option>
+          <option value="inch-cm">Inch → Centimeter</option>
+        </select>
+      </div>
+    </div>
+    <button class="calc-btn" onclick="convertUnit()">Convert 🔄</button>
+    <div class="result" id="unitResult"></div>
+    <button class="close-tool" onclick="closeTools()">← Tools पर वापस जाएं</button>
+  </div>
+</section>
+
+<!-- FEATURE BANNER -->
+<section class="feature">
+  <h2>🌌 अत्याधुनिक तकनीक और सरल अनुभव</h2>
+  <p>KaamKiSite का उद्देश्य आपके सभी दैनिक कैलकुलेशन को तेज, सुरक्षित और बेहद आसान बनाना है ताकि आपको अलग-अलग ऐप्स या वेबसाइट्स पर भटकना न पड़े।</p>
+</section>
+
+<footer>
+  © 2026 KaamKiSite 🚀 • Next-Gen Smart Tools. All Rights Reserved.
+</footer>
+
+<script>
+const today = new Date().toISOString().split("T")[0];
+document.getElementById("ageUntil").value = today;
+
+const cards = document.querySelectorAll(".tool-card");
+
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    const name = card.dataset.name;
+    closeTools();
+
+    if(name.includes("age")) openTool("ageTool");
+    else if(name.includes("emi")) openTool("emiTool");
+    else if(name.includes("percentage")) openTool("percentageTool");
+    else if(name.includes("date")) openTool("dateTool");
+    else if(name.includes("unit")) openTool("unitTool");
+    else if(name.includes("pdf")){
+      alert("PDF Tools जल्द आ रहे हैं 🚀");
+      return;
+    }
+
+    setTimeout(() => {
+      document.querySelector(".tool-panel.active")?.scrollIntoView({behavior:"smooth", block:"start"});
+    }, 100);
+  });
+});
+
+function openTool(id){ document.getElementById(id).classList.add("active"); }
+function closeTools(){ document.querySelectorAll(".tool-panel").forEach(x => x.classList.remove("active")); }
+
+function searchTools(){
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  cards.forEach(card => {
+    const name = card.dataset.name;
+    if(!input || name.includes(input)) card.style.display = "block";
+    else card.style.display = "none";
+  });
+  document.getElementById("tools").scrollIntoView({behavior:"smooth"});
+}
+
+documen
