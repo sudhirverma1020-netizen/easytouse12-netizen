@@ -10,7 +10,7 @@
 body{background:var(--bg);color:#fff;overflow-x:hidden;padding-bottom:50px}
 
 /* SPACE BACKGROUND & STARS */
-.space{position:fixed;inset:0;z-index:-10;background:radial-gradient(circle at 20% 20%,rgba(138,43,226,0.25),transparent 35%),radial-gradient(circle at 80% 30%,rgba(0,240,255,0.18),transparent 30%,linear-gradient(180deg,#030511,#070b1f 60%,#030511))}
+.space{position:fixed;inset:0;z-index:-10;background:radial-gradient(circle at 20% 20%,rgba(138,43,226,0.25),transparent 35%),radial-gradient(circle at 80% 30%,rgba(0,240,255,0.18),transparent 30%),linear-gradient(180deg,#030511,#070b1f 60%,#030511)}
 .stars{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 15% 25%,#fff,transparent),radial-gradient(1.5px 1.5px at 35% 65%,#00f0ff,transparent),radial-gradient(2px 2px at 55% 15%,#fff,transparent),radial-gradient(1px 1px at 75% 85%,#ff007f,transparent);opacity:0.6;animation:starsMove 30s linear infinite}
 @keyframes starsMove{from{transform:translateY(0)}to{transform:translateY(-120px)}}
 
@@ -62,10 +62,10 @@ footer{text-align:center;color:var(--muted);margin-top:50px;font-size:13px}
   <div class="logo">KaamKi<span>Site</span> 🚀</div>
 </nav>
 
-<!-- HERO SECTION WITH VISITOR & MASCOT -->
+<!-- HERO SECTION -->
 <div class="hero" id="mainHero">
   <div>
-    <div class="visitor-badge" id="visitorCount">👥 Total Visitors: 1,245</div>
+    <div class="visitor-badge" id="visitorCount">👥 Total Visitors: Loading...</div>
     <h1>आपका काम, <span>अब सुपरफास्ट।</span></h1>
     <p>ज़रूरी कैलकुलेटर टूल्स अब एक ही शानदार स्पेस प्लेटफॉर्म पर।</p>
   </div>
@@ -146,13 +146,25 @@ footer{text-align:center;color:var(--muted);margin-top:50px;font-size:13px}
 <footer>© 2026 KaamKiSite 🚀</footer>
 
 <script>
+// लाइव विज़िटर काउंटर API
+fetch('https://api.countapi.xyz/hit/kaamkisite-tools/visits')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('visitorCount').innerText = `👥 Total Visitors: ${data.value}`;
+  })
+  .catch(err => {
+    document.getElementById('visitorCount').innerText = `👥 Total Visitors: Live`;
+  });
+
 document.getElementById("ageUntil").value = new Date().toISOString().split("T")[0];
+
 function openTool(id){
   document.getElementById("toolGrid").style.display = "none";
   document.getElementById("mainHero").style.display = "none";
   document.querySelectorAll(".tool-panel").forEach(p => p.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 }
+
 function closeTools(){
   document.querySelectorAll(".tool-panel").forEach(p => p.classList.remove("active"));
   document.getElementById("toolGrid").style.display = "grid";
