@@ -1,13 +1,601 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KaamKiSite - Free Online Tools</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KaamKiSite — Your Everyday Tools</title>
+<meta name="description" content="Simple, fast and useful online tools — all in one place.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#050816;
+  --card:rgba(17,25,55,.72);
+  --text:#f7f9ff;
+  --muted:#aeb8d8;
+  --accent:#7c5cff;
+  --accent2:#25d9ff;
+  --border:rgba(255,255,255,.1);
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* SPACE BACKGROUND */
+.space{
+  position:fixed;
+  inset:0;
+  z-index:-5;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(124,92,255,.20),transparent 28%),
+    radial-gradient(circle at 80% 30%,rgba(37,217,255,.12),transparent 25%),
+    linear-gradient(180deg,#050816,#090d22 55%,#050816);
+}
+
+.stars,.stars:before,.stars:after{
+  position:absolute;
+  inset:0;
+  content:"";
+  background-image:
+    radial-gradient(2px 2px at 10% 20%,white,transparent),
+    radial-gradient(1px 1px at 30% 70%,white,transparent),
+    radial-gradient(2px 2px at 55% 15%,white,transparent),
+    radial-gradient(1px 1px at 72% 55%,white,transparent),
+    radial-gradient(2px 2px at 90% 25%,white,transparent),
+    radial-gradient(1px 1px at 45% 90%,white,transparent),
+    radial-gradient(1px 1px at 82% 85%,white,transparent);
+  opacity:.55;
+  animation:drift 18s linear infinite;
+}
+
+.stars:before{transform:scale(1.5);opacity:.3;animation-duration:30s}
+.stars:after{transform:scale(2);opacity:.2;animation-duration:45s}
+
+@keyframes drift{
+  from{transform:translateY(0)}
+  to{transform:translateY(-80px)}
+}
+
+/* NAVBAR */
+nav{
+  width:min(1180px,92%);
+  margin:20px auto;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border:1px solid var(--border);
+  background:rgba(7,12,32,.65);
+  backdrop-filter:blur(18px);
+  border-radius:22px;
+  position:relative;
+  z-index:10;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:-.8px;
+}
+
+.logo span{color:var(--accent2)}
+
+.nav-btn{
+  text-decoration:none;
+  color:white;
+  padding:10px 17px;
+  border-radius:13px;
+  background:linear-gradient(135deg,var(--accent),#5940d9);
+  font-weight:700;
+  font-size:14px;
+}
+
+/* HERO */
+.hero{
+  width:min(1180px,92%);
+  min-height:620px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  align-items:center;
+  gap:30px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 13px;
+  border:1px solid rgba(37,217,255,.25);
+  background:rgba(37,217,255,.08);
+  border-radius:50px;
+  color:#bdefff;
+  font-size:13px;
+  margin-bottom:22px;
+}
+
+.badge i{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:#42e8ff;
+  box-shadow:0 0 15px #42e8ff;
+}
+
+h1{
+  font-size:clamp(43px,7vw,76px);
+  line-height:.98;
+  letter-spacing:-4px;
+  max-width:700px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,#fff,#9b8aff,#48e5ff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.65;
+  max-width:620px;
+  margin:25px 0;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.primary,.secondary{
+  border:0;
+  cursor:pointer;
+  text-decoration:none;
+  padding:15px 22px;
+  border-radius:15px;
+  font-weight:800;
+  font-size:15px;
+}
+
+.primary{
+  color:white;
+  background:linear-gradient(135deg,var(--accent),#4c3bc9);
+  box-shadow:0 10px 35px rgba(124,92,255,.28);
+}
+
+.secondary{
+  color:white;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.06);
+}
+
+/* MASCOT */
+.mascot-wrap{
+  position:relative;
+  height:500px;
+  display:grid;
+  place-items:center;
+}
+
+.orbit{
+  position:absolute;
+  width:350px;
+  height:350px;
+  border:1px solid rgba(104,118,255,.25);
+  border-radius:50%;
+  transform:rotate(-18deg);
+  box-shadow:0 0 80px rgba(80,100,255,.12);
+}
+
+.orbit:after{
+  content:"";
+  position:absolute;
+  width:12px;height:12px;
+  border-radius:50%;
+  background:#43e6ff;
+  box-shadow:0 0 25px #43e6ff;
+  top:10px;left:50px;
+}
+
+.mascot{
+  width:245px;
+  height:330px;
+  position:relative;
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(1deg)}
+  50%{transform:translateY(-17px) rotate(-1deg)}
+}
+
+.head{
+  width:155px;
+  height:155px;
+  margin:auto;
+  border-radius:48% 48% 44% 44%;
+  background:linear-gradient(145deg,#ffe8d6,#f5bfa8);
+  position:relative;
+  box-shadow:inset -10px -15px 25px rgba(190,100,100,.12);
+}
+
+.hair{
+  position:absolute;
+  inset:-14px -8px 30px;
+  border-radius:50% 50% 35% 35%;
+  background:#33234d;
+  z-index:-1;
+}
+
+.eye{
+  position:absolute;
+  width:12px;height:17px;
+  background:#18182d;
+  border-radius:50%;
+  top:72px;
+}
+
+.eye.left{left:43px}
+.eye.right{right:43px}
+
+.smile{
+  position:absolute;
+  width:35px;height:18px;
+  border-bottom:3px solid #a95069;
+  border-radius:50%;
+  left:60px;top:103px;
+}
+
+.body{
+  width:170px;
+  height:145px;
+  margin:-3px auto 0;
+  border-radius:50px 50px 28px 28px;
+  background:linear-gradient(145deg,#7460ff,#342879);
+  position:relative;
+}
+
+.collar{
+  position:absolute;
+  width:62px;height:27px;
+  background:#161a3c;
+  left:54px;top:0;
+  border-radius:0 0 25px 25px;
+}
+
+.glow{
+  position:absolute;
+  width:300px;height:300px;
+  border-radius:50%;
+  background:rgba(104,80,255,.18);
+  filter:blur(50px);
+  z-index:-2;
+}
+
+/* SEARCH */
+.search-area{
+  width:min(850px,92%);
+  margin:0 auto 80px;
+  text-align:center;
+}
+
+.search-area h2{
+  font-size:32px;
+  margin-bottom:12px;
+}
+
+.search-area p{color:var(--muted);margin-bottom:20px}
+
+.search{
+  display:flex;
+  padding:7px;
+  border:1px solid var(--border);
+  background:rgba(12,18,45,.8);
+  border-radius:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+
+.search input{
+  flex:1;
+  min-width:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:white;
+  padding:14px;
+  font-size:16px;
+}
+
+.search button{
+  border:0;
+  border-radius:13px;
+  padding:0 22px;
+  background:var(--accent);
+  color:white;
+  font-weight:800;
+}
+
+/* TOOLS */
+.tools{
+  width:min(1180px,92%);
+  margin:auto;
+  padding-bottom:100px;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  margin-bottom:25px;
+}
+
+.section-head h2{font-size:34px}
+.section-head p{color:var(--muted)}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.card{
+  text-decoration:none;
+  color:white;
+  padding:25px;
+  min-height:190px;
+  border-radius:23px;
+  border:1px solid var(--border);
+  background:linear-gradient(145deg,rgba(22,31,68,.8),rgba(10,15,37,.75));
+  backdrop-filter:blur(14px);
+  transition:.25s;
+  position:relative;
+  overflow:hidden;
+}
+
+.card:before{
+  content:"";
+  position:absolute;
+  width:100px;height:100px;
+  background:rgba(124,92,255,.18);
+  border-radius:50%;
+  filter:blur(30px);
+  right:-30px;top:-30px;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(124,92,255,.55);
+  box-shadow:0 20px 45px rgba(0,0,0,.25);
+}
+
+.icon{
+  font-size:33px;
+  margin-bottom:18px;
+}
+
+.card h3{font-size:20px;margin-bottom:8px}
+.card p{color:var(--muted);line-height:1.5;font-size:14px}
+
+.arrow{
+  position:absolute;
+  right:22px;
+  bottom:20px;
+  font-size:20px;
+}
+
+/* FEATURE */
+.feature{
+  width:min(1180px,92%);
+  margin:0 auto 80px;
+  padding:38px;
+  border-radius:28px;
+  border:1px solid var(--border);
+  background:linear-gradient(120deg,rgba(124,92,255,.12),rgba(37,217,255,.06));
+  text-align:center;
+}
+
+.feature h2{font-size:32px;margin-bottom:12px}
+.feature p{color:var(--muted);max-width:700px;margin:auto;line-height:1.6}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:28px 5%;
+  text-align:center;
+  color:#7f8aad;
+  font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+    padding-top:45px;
+  }
+
+  .hero p{margin-left:auto;margin-right:auto}
+  .actions{justify-content:center}
+  .mascot-wrap{height:390px;transform:scale(.82)}
+  .grid{grid-template-columns:1fr}
+  .section-head{display:block}
+  .section-head p{margin-top:7px}
+  h1{letter-spacing:-2.5px}
+}
+
+@media(max-width:480px){
+  nav{margin-top:10px}
+  .logo{font-size:19px}
+  .nav-btn{padding:8px 12px}
+  .search button{padding:0 15px}
+  .feature{padding:28px 20px}
+}
+</style>
 </head>
+
 <body>
-  <h1>KaamKiSite</h1>
-  <h2>Har Kaam Ka Free Online Tool</h2>
-  <p>Useful free tools for everyday work — calculators, PDF tools, image tools and more.</p>
+
+<div class="space"><div class="stars"></div></div>
+
+<nav>
+  <div class="logo">KaamKi<span>Site</span> 🚀</div>
+  <a class="nav-btn" href="#tools">Explore Tools</a>
+</nav>
+
+<section class="hero">
+
+  <div>
+    <div class="badge">
+      <i></i>
+      Simple tools. Big help.
+    </div>
+
+    <h1>
+      आपका काम,
+      <span class="gradient">अब आसान।</span>
+    </h1>
+
+    <p>
+      रोज़मर्रा के useful online tools एक ही जगह।
+      Fast, simple और बिना किसी confusion के।
+      बस tool चुनिए और काम शुरू कीजिए।
+    </p>
+
+    <div class="actions">
+      <a class="primary" href="#tools">🚀 Start Exploring</a>
+      <a class="secondary" href="#search">🔎 Find a Tool</a>
+    </div>
+  </div>
+
+  <div class="mascot-wrap">
+    <div class="glow"></div>
+    <div class="orbit"></div>
+
+    <div class="mascot">
+      <div class="head">
+        <div class="hair"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="smile"></div>
+      </div>
+
+      <div class="body">
+        <div class="collar"></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="search-area" id="search">
+  <h2>आज क्या करना है? 🔎</h2>
+  <p>नीचे search करके अपना tool जल्दी ढूँढिए।</p>
+
+  <div class="search">
+    <input id="searchInput" type="text" placeholder="जैसे Age Calculator, EMI...">
+    <button onclick="searchTools()">Search</button>
+  </div>
+</section>
+
+<section class="tools" id="tools">
+
+  <div class="section-head">
+    <div>
+      <h2>Popular Tools</h2>
+      <p>काम की चीज़ें, एक जगह।</p>
+    </div>
+  </div>
+
+  <div class="grid" id="toolGrid">
+
+    <a class="card" href="#" data-name="age calculator">
+      <div class="icon">🎂</div>
+      <h3>Age Calculator</h3>
+      <p>अपनी exact age साल, महीने और दिनों में जानें।</p>
+      <div class="arrow">→</div>
+    </a>
+
+    <a class="card" href="#" data-name="emi calculator">
+      <div class="icon">💰</div>
+      <h3>EMI Calculator</h3>
+      <p>Loan की EMI और total payment आसानी से calculate करें।</p>
+      <div class="arrow">→</div>
+    </a>
+
+    <a class="card" href="#" data-name="date calculator day calculator">
+      <div class="icon">📅</div>
+      <h3>Date & Day</h3>
+      <p>दो dates के बीच का difference और day पता करें।</p>
+      <div class="arrow">→</div>
+    </a>
+
+    <a class="card" href="#" data-name="percentage calculator">
+      <div class="icon">📊</div>
+      <h3>Percentage</h3>
+      <p>Percentage निकालना अब कुछ seconds का काम है।</p>
+      <div class="arrow">→</div>
+    </a>
+
+    <a class="card" href="#" data-name="unit converter">
+      <div class="icon">🔄</div>
+      <h3>Unit Converter</h3>
+      <p>Length, weight और दूसरे units को जल्दी convert करें।</p>
+      <div class="arrow">→</div>
+    </a>
+
+    <a class="card" href="#" data-name="pdf tools">
+      <div class="icon">📄</div>
+      <h3>PDF Tools</h3>
+      <p>PDF से जुड़े useful tools एक ही जगह मिलेंगे।</p>
+      <div class="arrow">→</div>
+    </a>
+
+  </div>
+</section>
+
+<section class="feature">
+  <h2>🌌 काम की दुनिया में आपका स्वागत है</h2>
+  <p>
+    हमारा goal simple है — आपको छोटे-छोटे रोज़मर्रा के कामों के लिए
+    अलग-अलग websites खोजने की जरूरत न पड़े।
+    KaamKiSite पर सब कुछ simple, fast और easy-to-use रहेगा।
+  </p>
+</section>
+
+<footer>
+  © 2026 KaamKiSite • Made to make everyday work easier 🚀
+</footer>
+
+<script>
+function searchTools(){
+  const input=document.getElementById("searchInput").value.toLowerCase().trim();
+  const cards=document.querySelectorAll(".card");
+
+  cards.forEach(card=>{
+    const name=card.dataset.name;
+    card.style.display =
+      !input || name.includes(input) ? "block" : "none";
+  });
+
+  document.getElementById("tools").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+document.getElementById("searchInput").addEventListener("keydown",function(e){
+  if(e.key==="Enter") searchTools();
+});
+</script>
+
 </body>
-</html>
+          </html>
