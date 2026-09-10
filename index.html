@@ -862,12 +862,11 @@ function convertUnit() {
 }
 </script>
 <div style="text-align: center; margin: 15px 0; color: var(--muted); font-size: 13px;">
-  Visitors: <span id="visitor-count">1</span>
+  Visitors: <span id="visitor-count">15</span>
 </div>
 
 <script>
-  // Simple local visitor increment logic
-  let visits = localStorage.getItem("kaamkisite_visits") || 12;
+  let visits = localStorage.getItem("kaamkisite_visits") || 15;
   if (!sessionStorage.getItem("visited")) {
     visits++;
     localStorage.setItem("kaamkisite_visits", visits);
