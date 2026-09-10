@@ -886,6 +886,24 @@ function convertUnit() {
   }
   document.getElementById("visitor-count").innerText = visits;
 </script>
-  
+    function appendCalc(val) {
+    let display = document.getElementById('calc-display');
+    if (display) display.value += val;
+  }
+  function clearCalc() {
+    let display = document.getElementById('calc-display');
+    if (display) display.value = '';
+  }
+  function calculateResult() {
+    let display = document.getElementById('calc-display');
+    if (display) {
+      try {
+        display.value = eval(display.value);
+      } catch (e) {
+        display.value = 'Error';
+      }
+    }
+  }
+
 </body>
 </html>
