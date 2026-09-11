@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- SEO META TAGS -->
 <title>KaamKiSite - Free Online Calculator, Age & EMI Calculator</title>
 <meta name="description" content="Use free online tools on KaamKiSite. Calculate your age accurately, check loan EMI instantly, and use a fast normal calculator in Hindi and English.">
 <meta name="keywords" content="age calculator, emi calculator, online calculator, kaamkisite, age finder, loan calculator india">
@@ -14,7 +13,7 @@
 :root{--bg:#030511;--card:rgba(15,23,54,0.8);--cyan:#00f0ff;--purple:#8a2be2;--pink:#ff007f;--border:rgba(0,240,255,0.2);--muted:#94a3b8}
 body{background:var(--bg);color:#fff;overflow-x:hidden;padding-bottom:50px}
 
-.space{position:fixed;inset:0;z-index:-10;background:radial-gradient(circle at 20% 20%,rgba(138,43,226,0.25),transparent 35%,radial-gradient(circle at 80% 30%,rgba(0,240,255,0.18),transparent 30%),linear-gradient(180deg,#030511,#070b1f 60%,#030511))}
+.space{position:fixed;inset:0;z-index:-10;background:radial-gradient(circle at 20% 20%,rgba(138,43,226,0.25),transparent 35%),radial-gradient(circle at 80% 30%,rgba(0,240,255,0.18),transparent 30%),linear-gradient(180deg,#030511,#070b1f 60%,#030511)}
 .stars{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 15% 25%,#fff,transparent),radial-gradient(1.5px 1.5px at 35% 65%,#00f0ff,transparent),radial-gradient(2px 2px at 55% 15%,#fff,transparent),radial-gradient(1px 1px at 75% 85%,#ff007f,transparent);opacity:0.6;animation:starsMove 30s linear infinite}
 @keyframes starsMove{from{transform:translateY(0)}to{transform:translateY(-120px)}}
 
@@ -70,7 +69,7 @@ footer a:hover{text-decoration:underline}
 
 <div class="hero" id="mainHero">
   <div>
-    <div class="visitor-badge" id="visitorCount">👥 Total Visitors: 1</div>
+    <div class="visitor-badge" id="visitorCount">👥 Total Visitors: Loading...</div>
     <h1>आपका काम, <span>अब सुपरफास्ट।</span></h1>
     <p>ज़रूरी कैलकुलेटर टूल्स (Age, EMI & Normal Calculator) अब एक ही शानदार स्पेस प्लेटफॉर्म पर।</p>
   </div>
@@ -157,15 +156,18 @@ footer a:hover{text-decoration:underline}
 </footer>
 
 <script>
-// रियल विज़िटर काउंटर (अब यह बिल्कुल नए सिरे से 1 से गिनेगा)
-let visits = localStorage.getItem('kaamKiSitePureVisits');
-if (!visits) {
-    visits = 1; 
-} else {
-    visits = parseInt(visits) + 1;
-}
-localStorage.setItem('kaamKiSitePureVisits', visits);
-document.getElementById('visitorCount').innerText = `👥 Total Visitors: ${visits.toLocaleString()}`;
+// असली लाइव विज़िटर काउंटर (जो API के जरिए सर्वर से जुड़ेगा और बार-बार रिफ्रेश करने पर नहीं बढ़ेगा)
+fetch('https://api.countapi.xyz/hit/kaamkisite-calculator/visits')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('visitorCount').innerText = `👥 Total Visitors: ${data.value.toLocaleString()}`;
+  })
+  .catch(error => {
+    // अगर API कभी स्लो हो तो लोकल स्टोरेज फॉールबैक देगा ताकि पेज खराब न दिखे
+    let localVisits = localStorage.getItem('kaamKiSiteFallback');
+    if(!localVisits){ localVisits = 1; localStorage.setItem('kaamKiSiteFallback', localVisits); }
+    document.getElementById('visitorCount').innerText = `👥 Total Visitors: ${localVisits}`;
+  });
 
 document.getElementById("ageUntil").value = new Date().toISOString().split("T")[0];
 
@@ -211,5 +213,4 @@ function calculateEMI(){
 }
 </script>
 </body>
-    </html>
-    
+</html>
