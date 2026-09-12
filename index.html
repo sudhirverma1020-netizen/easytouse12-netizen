@@ -3,214 +3,1297 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KaamKiSite - Free Online Calculator, Age & EMI Calculator</title>
-<meta name="description" content="Use free online tools on KaamKiSite. Calculate your age accurately, check loan EMI instantly, and use a fast normal calculator in Hindi and English.">
-<meta name="keywords" content="age calculator, emi calculator, online calculator, kaamkisite, age finder, loan calculator india">
-<meta name="author" content="KaamKiSite">
+<meta name="theme-color" content="#050817">
+
+<title>KaamKiSite 🚀</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
-:root{--bg:#030511;--card:rgba(15,23,54,0.8);--cyan:#00f0ff;--purple:#8a2be2;--pink:#ff007f;--border:rgba(0,240,255,0.2);--muted:#94a3b8}
-body{background:var(--bg);color:#fff;overflow-x:hidden;padding-bottom:50px}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-.space{position:fixed;inset:0;z-index:-10;background:radial-gradient(circle at 20% 20%,rgba(138,43,226,0.25),transparent 35%),radial-gradient(circle at 80% 30%,rgba(0,240,255,0.18),transparent 30%),linear-gradient(180deg,#030511,#070b1f 60%,#030511)}
-.stars{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 15% 25%,#fff,transparent),radial-gradient(1.5px 1.5px at 35% 65%,#00f0ff,transparent),radial-gradient(2px 2px at 55% 15%,#fff,transparent),radial-gradient(1px 1px at 75% 85%,#ff007f,transparent);opacity:0.6;animation:starsMove 30s linear infinite}
-@keyframes starsMove{from{transform:translateY(0)}to{transform:translateY(-120px)}}
+html{
+  scroll-behavior:smooth;
+}
 
-nav{width:min(1100px,92%);margin:20px auto;padding:15px 25px;border:1px solid var(--border);border-radius:20px;background:rgba(5,9,28,0.8);display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:22px;font-weight:900}.logo span{color:var(--cyan)}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  min-height:100vh;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(75,0,180,.35),transparent 30%),
+    radial-gradient(circle at 85% 25%,rgba(0,140,255,.25),transparent 28%),
+    radial-gradient(circle at 50% 85%,rgba(255,0,130,.18),transparent 30%),
+    #02040d;
+}
 
-.hero{width:min(1100px,92%);margin:30px auto;display:grid;grid-template-columns:1.1fr 0.9fr;align-items:center;gap:30px}
-.visitor-badge{display:inline-block;background:rgba(56,189,248,0.1);border:1px solid var(--border);padding:5px 14px;border-radius:20px;font-size:0.85rem;margin-bottom:15px;color:var(--cyan)}
-.hero h1{font-size:clamp(32px,5vw,48px);margin-bottom:12px}
-.hero h1 span{background:linear-gradient(90deg,#fff,var(--cyan));-webkit-background-clip:text;color:transparent}
-.hero p{color:var(--muted);max-width:500px;margin-bottom:20px;line-height:1.6}
+/* ===== SPACE BACKGROUND ===== */
 
-.mascot-area{height:350px;position:relative;display:grid;place-items:center}
-.orbit{position:absolute;width:280px;height:280px;border:1px dashed rgba(255,0,127,0.3);border-radius:50%;animation:spin 25s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.anime-container{position:relative;width:210px;height:310px;animation:float 4s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.anime-img{width:100%;height:100%;object-fit:cover;border-radius:25px;border:2px solid var(--cyan);box-shadow:0 15px 35px rgba(0,240,255,0.3)}
-.speech-bubble{position:absolute;top:-20px;right:-15px;background:rgba(15,23,54,0.95);border:1px solid var(--cyan);padding:8px 14px;border-radius:15px;font-size:12px;box-shadow:0 10px 20px rgba(0,240,255,0.2)}
+.space{
+  position:fixed;
+  inset:0;
+  z-index:-10;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 50%,#11183a 0%,#050817 45%,#010208 100%);
+}
 
-.grid{width:min(1100px,92%);margin:20px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.tool-card{border:1px solid var(--border);border-radius:20px;padding:25px;background:var(--card);cursor:pointer;transition:0.3s}
-.tool-card:hover{border-color:var(--cyan);transform:translateY(-5px)}
-.icon{font-size:32px;margin-bottom:12px}
-.tool-card h3{margin-bottom:6px;font-size:20px}
-.tool-card p{color:var(--muted);font-size:14px}
+.space::before{
+  content:"";
+  position:absolute;
+  inset:-50%;
+  background:
+    radial-gradient(circle,rgba(0,180,255,.12),transparent 35%),
+    radial-gradient(circle at 70% 30%,rgba(170,0,255,.14),transparent 30%),
+    radial-gradient(circle at 30% 70%,rgba(255,0,150,.10),transparent 30%);
+  animation:nebula 18s ease-in-out infinite alternate;
+}
 
-.tool-panel{width:min(600px,92%);margin:30px auto;display:none;background:rgba(10,16,40,0.95);border:1px solid var(--border);border-radius:25px;padding:30px}
-.tool-panel.active{display:block}
-.field{margin-bottom:15px}
-.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:5px}
-.field input{width:100%;padding:12px;background:#05081a;border:1px solid var(--border);border-radius:12px;color:#fff;outline:none;font-size:15px}
-.calc-btn{width:100%;padding:14px;border:0;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--cyan));color:#fff;font-weight:bold;cursor:pointer;margin-top:10px}
-.result{margin-top:20px;padding:15px;background:rgba(0,240,255,0.05);border:1px solid var(--border);border-radius:12px;display:none}
-.result strong{color:var(--cyan);font-size:18px;display:block;margin-bottom:5px}
-.close-tool{background:0;border:0;color:var(--muted);cursor:pointer;margin-top:20px;display:block;width:100%;text-align:center}
-.close-tool:hover{color:var(--cyan)}
+@keyframes nebula{
+  from{transform:translate(-4%,-3%) scale(1);}
+  to{transform:translate(4%,3%) scale(1.15);}
+}
 
-footer{text-align:center;color:var(--muted);margin-top:50px;font-size:13px}
-footer a{color:var(--cyan);text-decoration:none;margin:0 10px}
-footer a:hover{text-decoration:underline}
+/* Stars */
+.stars,
+.stars2,
+.stars3{
+  position:absolute;
+  inset:0;
+  background-repeat:repeat;
+}
 
-@media(max-width:768px){.hero{grid-template-columns:1fr;text-align:center}.hero p{margin:0 auto 20px}}
+.stars{
+  background-image:
+    radial-gradient(1px 1px at 10% 20%,white,transparent),
+    radial-gradient(1px 1px at 30% 80%,white,transparent),
+    radial-gradient(1px 1px at 50% 40%,white,transparent),
+    radial-gradient(1px 1px at 70% 15%,white,transparent),
+    radial-gradient(1px 1px at 90% 65%,white,transparent),
+    radial-gradient(1px 1px at 20% 55%,white,transparent),
+    radial-gradient(1px 1px at 80% 85%,white,transparent);
+  background-size:230px 230px;
+  opacity:.7;
+  animation:starsMove 40s linear infinite;
+}
+
+.stars2{
+  background-image:
+    radial-gradient(2px 2px at 15% 35%,#8bdcff,transparent),
+    radial-gradient(2px 2px at 65% 25%,#fff,transparent),
+    radial-gradient(2px 2px at 40% 75%,#c68cff,transparent),
+    radial-gradient(2px 2px at 85% 55%,#fff,transparent);
+  background-size:370px 370px;
+  opacity:.5;
+  animation:starsMove 70s linear infinite reverse;
+}
+
+.stars3{
+  background-image:
+    radial-gradient(1px 1px at 25% 15%,#fff,transparent),
+    radial-gradient(1px 1px at 75% 45%,#fff,transparent),
+    radial-gradient(1px 1px at 55% 90%,#fff,transparent);
+  background-size:500px 500px;
+  opacity:.45;
+}
+
+@keyframes starsMove{
+  from{transform:translateY(0);}
+  to{transform:translateY(230px);}
+}
+
+/* Planet */
+.planet{
+  position:absolute;
+  width:260px;
+  height:260px;
+  right:-80px;
+  top:100px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 30%,#8e8fff,#3637a9 35%,#11144f 70%,#050615);
+  box-shadow:
+    -25px 20px 70px rgba(55,80,255,.45),
+    inset -35px -25px 55px rgba(0,0,0,.8);
+  opacity:.75;
+}
+
+.planet::after{
+  content:"";
+  position:absolute;
+  width:360px;
+  height:80px;
+  border:2px solid rgba(100,180,255,.25);
+  border-radius:50%;
+  left:-50px;
+  top:90px;
+  transform:rotate(-20deg);
+}
+
+/* Shooting star */
+.shooting{
+  position:absolute;
+  width:130px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,#fff,transparent);
+  transform:rotate(-35deg);
+  animation:shoot 6s linear infinite;
+  opacity:0;
+}
+
+.shooting:nth-child(1){top:18%;left:5%;animation-delay:1s;}
+.shooting:nth-child(2){top:38%;left:70%;animation-delay:4s;}
+
+@keyframes shoot{
+  0%{transform:translate(0,0) rotate(-35deg);opacity:0;}
+  10%{opacity:1;}
+  30%{transform:translate(280px,180px) rotate(-35deg);opacity:0;}
+  100%{opacity:0;}
+}
+
+/* ===== NAVBAR ===== */
+
+nav{
+  width:100%;
+  padding:18px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  z-index:10;
+  backdrop-filter:blur(15px);
+  background:rgba(2,4,15,.45);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+  font-size:24px;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+
+.logo span{
+  color:#62d9ff;
+  text-shadow:0 0 20px rgba(0,190,255,.7);
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  min-height:650px;
+  padding:70px 7% 50px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  max-width:1400px;
+  margin:auto;
+}
+
+.heroText{
+  flex:1;
+  max-width:650px;
+}
+
+.badge{
+  display:inline-block;
+  padding:9px 16px;
+  border:1px solid rgba(100,210,255,.35);
+  background:rgba(40,150,255,.08);
+  border-radius:30px;
+  color:#8ce5ff;
+  font-size:14px;
+  margin-bottom:20px;
+  box-shadow:0 0 25px rgba(0,170,255,.1);
+}
+
+.hero h1{
+  font-size:clamp(42px,7vw,78px);
+  line-height:1.05;
+  margin-bottom:22px;
+  background:linear-gradient(90deg,#fff,#73dfff,#a77cff,#fff);
+  background-size:300%;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:gradientText 7s ease infinite;
+}
+
+@keyframes gradientText{
+  0%,100%{background-position:0%;}
+  50%{background-position:100%;}
+}
+
+.hero p{
+  font-size:18px;
+  line-height:1.7;
+  color:#b9c2dc;
+  max-width:590px;
+}
+
+.visitor{
+  display:inline-block;
+  margin-top:28px;
+  padding:12px 20px;
+  border-radius:30px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  color:#dcecff;
+  backdrop-filter:blur(10px);
+}
+
+.heroImage{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.heroImage img{
+  width:min(430px,90vw);
+  max-height:430px;
+  object-fit:contain;
+  filter:
+    drop-shadow(0 0 25px rgba(0,200,255,.4))
+    drop-shadow(0 0 60px rgba(120,0,255,.25));
+  animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-18px);}
+}
+
+/* ===== TOOLS ===== */
+
+.toolsSection{
+  padding:60px 7% 90px;
+  max-width:1400px;
+  margin:auto;
+}
+
+.sectionTitle{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.sectionTitle h2{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.sectionTitle p{
+  color:#8e99b8;
+}
+
+.toolsGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.toolCard{
+  padding:30px;
+  min-height:230px;
+  border-radius:24px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
+  border:1px solid rgba(255,255,255,.1);
+  backdrop-filter:blur(18px);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.25),
+    inset 0 1px rgba(255,255,255,.08);
+  transition:.35s;
+  cursor:pointer;
+}
+
+.toolCard:hover{
+  transform:translateY(-8px);
+  border-color:rgba(90,210,255,.4);
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.4),
+    0 0 35px rgba(0,180,255,.1);
+}
+
+.toolIcon{
+  font-size:45px;
+  margin-bottom:20px;
+}
+
+.toolCard h3{
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.toolCard p{
+  color:#98a4c0;
+  line-height:1.6;
+}
+
+/* ===== TOOL PANEL ===== */
+
+.toolPanel{
+  display:none;
+  max-width:650px;
+  margin:60px auto;
+  padding:25px;
+}
+
+.toolPanel.active{
+  display:block;
+  animation:panelIn .35s ease;
+}
+
+@keyframes panelIn{
+  from{
+    opacity:0;
+    transform:translateY(15px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.toolBox{
+  padding:28px;
+  border-radius:25px;
+  background:rgba(8,12,35,.82);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(20px);
+  box-shadow:0 25px 80px rgba(0,0,0,.45);
+}
+
+.toolBox h2{
+  text-align:center;
+  margin-bottom:22px;
+}
+
+/* Calculator */
+
+#calcDisplay{
+  width:100%;
+  height:70px;
+  border:0;
+  outline:0;
+  border-radius:15px;
+  margin-bottom:15px;
+  padding:10px 18px;
+  font-size:27px;
+  text-align:right;
+  color:#fff;
+  background:#050817;
+  box-shadow:inset 0 0 20px rgba(0,0,0,.5);
+}
+
+.calcGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.calcGrid button{
+  height:65px;
+  border:0;
+  border-radius:14px;
+  font-size:20px;
+  color:#fff;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.06);
+  cursor:pointer;
+  transition:.12s;
+}
+
+.calcGrid button:hover{
+  background:rgba(80,190,255,.2);
+}
+
+.calcGrid button:active{
+  transform:scale(.92);
+}
+
+.calcGrid .equal{
+  background:linear-gradient(135deg,#168cff,#8c3dff);
+}
+
+/* Inputs */
+
+.input{
+  width:100%;
+  padding:15px;
+  margin:8px 0;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.1);
+  outline:none;
+  color:#fff;
+  background:#070b1c;
+  font-size:16px;
+}
+
+.actionBtn{
+  width:100%;
+  padding:15px;
+  margin-top:12px;
+  border:0;
+  border-radius:13px;
+  color:#fff;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(135deg,#168cff,#8c3dff);
+  transition:.2s;
+}
+
+.actionBtn:active{
+  transform:scale(.97);
+}
+
+.result{
+  margin-top:18px;
+  padding:16px;
+  border-radius:12px;
+  background:rgba(0,180,255,.08);
+  border:1px solid rgba(0,180,255,.15);
+  text-align:center;
+  line-height:1.7;
+  color:#d8efff;
+}
+
+/* Back button */
+
+.backBtn{
+  display:block;
+  margin:20px auto 0;
+  padding:11px 20px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:30px;
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  text-align:center;
+  padding:35px 20px;
+  color:#68728f;
+  border-top:1px solid rgba(255,255,255,.06);
+  margin-top:50px;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:800px){
+
+  nav{
+    padding:16px 5%;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:55px 5% 30px;
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .heroImage{
+    order:-1;
+  }
+
+  .heroImage img{
+    width:280px;
+  }
+
+  .toolsSection{
+    padding:45px 5% 70px;
+  }
+
+  .toolsGrid{
+    grid-template-columns:1fr;
+  }
+
+  .sectionTitle h2{
+    font-size:31px;
+  }
+
+  .toolPanel{
+    margin:35px 5%;
+    padding:0;
+  }
+
+  .toolBox{
+    padding:20px;
+  }
+
+  .calcGrid{
+    gap:8px;
+  }
+
+  .calcGrid button{
+    height:58px;
+  }
+
+  .planet{
+    width:170px;
+    height:170px;
+    right:-80px;
+    top:180px;
+  }
+}
+
+@media(max-width:400px){
+  .calcGrid button{
+    height:52px;
+    font-size:18px;
+  }
+}
 </style>
 </head>
+
 <body>
 
-<div class="space"><div class="stars"></div></div>
+<!-- SPACE -->
+<div class="space">
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+  <div class="planet"></div>
+  <div class="shooting"></div>
+  <div class="shooting"></div>
+</div>
 
+<!-- NAVBAR -->
 <nav>
-  <div class="logo">KaamKi<span>Site</span> 🚀</div>
+  <div class="logo">
+    KaamKi<span>Site</span> 🚀
+  </div>
 </nav>
 
-<div class="hero" id="mainHero">
-  <div>
-    <div class="visitor-badge" id="visitorCount">👥 Total Visitors: Loading...</div>
-    <h1>आपका काम, <span>अब सुपरफास्ट।</span></h1>
-    <p>ज़रूरी कैलकुलेटर टूल्स (Age, EMI & Normal Calculator) अब एक ही शानदार स्पेस प्लेटफॉर्म पर।</p>
-  </div>
-  <div class="mascot-area">
-    <div class="orbit"></div>
-    <div class="anime-container">
-      <div class="speech-bubble">✨ Welcome! 💖</div>
-      <img src="anime.webp" alt="Anime Mascot" class="anime-img">
+<!-- HOME -->
+<main id="home">
+
+  <section class="hero">
+
+    <div class="heroText">
+
+      <div class="badge">
+        🚀 Welcome to KaamKiSite
+      </div>
+
+      <h1>
+        रोज़ के काम<br>
+        अब आसान।
+      </h1>
+
+      <p>
+        Calculator, Age Calculator और EMI Calculator जैसे
+        useful tools एक ही जगह। तेज़, simple और mobile-friendly।
+      </p>
+
+      <div class="visitor" id="visitorCount">
+        👥 Visitors: Loading...
+      </div>
+
     </div>
-  </div>
-</div>
 
-<div class="grid" id="toolGrid">
-  <div class="tool-card" onclick="openTool('calculatorTool')">
-    <div class="icon">🔢</div>
-    <h3>Calculator</h3>
-    <p>सामान्य गणनाएँ तुरंत करें।</p>
-  </div>
-  <div class="tool-card" onclick="openTool('ageTool')">
-    <div class="icon">🎂</div>
-    <h3>Age Calculator</h3>
-    <p>अपनी सही उम्र जांचें।</p>
-  </div>
-  <div class="tool-card" onclick="openTool('emiTool')">
-    <div class="icon">💰</div>
-    <h3>EMI Calculator</h3>
-    <p>लोन रीपेमेंट कैलकुलेट करें।</p>
-  </div>
-</div>
+    <div class="heroImage">
 
-<!-- CALCULATOR PANEL -->
-<section class="tool-panel" id="calculatorTool">
-  <h2>🔢 Calculator</h2>
-  <input type="text" id="calc-display" readonly style="width:100%;height:45px;background:#05081a;border:1px solid var(--border);color:#fff;font-size:22px;text-align:right;padding:0 10px;border-radius:10px;margin-bottom:15px;">
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
-    <button onclick="clearCalc()" style="padding:14px;background:#ff475733;border:1px solid #ff475766;color:#ff4757;border-radius:10px;font-weight:bold">C</button>
-    <button onclick="appendCalc('/')" style="padding:14px;background:#00f0ff11;border:1px solid var(--border);color:var(--cyan);border-radius:10px;font-weight:bold">÷</button>
-    <button onclick="appendCalc('*')" style="padding:14px;background:#00f0ff11;border:1px solid var(--border);color:var(--cyan);border-radius:10px;font-weight:bold">×</button>
-    <button onclick="appendCalc('-')" style="padding:14px;background:#00f0ff11;border:1px solid var(--border);color:var(--cyan);border-radius:10px;font-weight:bold">-</button>
-    <button onclick="appendCalc('7')" style="padding:14px;background:#fff1;border:1px solid var(--border);color:#fff;border-radius:10px">7</button>
-    <button onclick="appendCalc('8')" style="padding:14px;background:#fff1;border:1px solid var(--border);color:#fff;border-radius:10px">8</button>
-    <button onclick="appendCalc('9')" style="padding:14px;background:#fff1;border:1px solid var(--border);color:#fff;border-radius:10px">9</button>
-    <button onclick="appendCalc('+')" style="padding:14px;background:#00f0ff11;border:1px solid var(--border);color:var(--cyan);border-radius:10px;font-weight:bold">+</button>
-    <button onclick="appendCalc('4')" style="padding:14px;background:#fff1;border:1px solid var(--border);color:#fff;border-radius:10px">4</button>
-    <button onclick="appendCalc('5')" style="padding:14px;background:#fff1;border:1px solid var(--border);color:#fff;border-radius:10px">5</button>
-    <button onclick="appendCalc('6')" style="padding:14px;background:#fff1;border:1px solid var(--border);color:#fff;border-radius:10px">6</button>
-    <button onclick="calculateResult()" style="grid-row:span 2;padding:14px;background:linear-gradient(135deg,var(--purple),var(--cyan));border:0;color:#fff;border-radius:10px;font-weight:bold">=</button>
-    <button onclick="appendCalc('1')" style="padding:14px;background:#fff1;border:1px solid var(--border);color:#fff;border-radius:10px">1</button>
-    <button onclick="appendCalc('2')" style="padding:14px;background:#fff1;border:1px solid var(--border);color:#fff;border-radius:10px">2</button>
-    <button onclick="appendCalc('3')" style="padding:14px;background:#fff1;border:1px solid var(--border);color:#fff;border-radius:10px">3</button>
-    <button onclick="appendCalc('0')" style="grid-column:span 2;padding:14px;background:#fff1;border:1px solid var(--border);color:#fff;border-radius:10px">0</button>
-    <button onclick="appendCalc('.')" style="padding:14px;background:#fff1;border:1px solid var(--border);color:#fff;border-radius:10px">.</button>
+      <!-- अपनी anime.webp इसी folder में रखो -->
+      <img
+        src="anime.webp"
+        alt="KaamKiSite"
+        onerror="this.style.display='none'"
+      >
+
+    </div>
+
+  </section>
+
+
+  <!-- TOOLS -->
+  <section class="toolsSection">
+
+    <div class="sectionTitle">
+      <h2>🛠️ हमारे Tools</h2>
+      <p>अपने काम का tool चुनिए</p>
+    </div>
+
+    <div class="toolsGrid">
+
+      <div class="toolCard" onclick="openTool('calculatorTool')">
+        <div class="toolIcon">🧮</div>
+        <h3>Calculator</h3>
+        <p>
+          जोड़, घटाव, गुणा और भाग आसानी से करें।
+        </p>
+      </div>
+
+      <div class="toolCard" onclick="openTool('ageTool')">
+        <div class="toolIcon">🎂</div>
+        <h3>Age Calculator</h3>
+        <p>
+          अपनी exact age साल, महीने और दिनों में जानें।
+        </p>
+      </div>
+
+      <div class="toolCard" onclick="openTool('emiTool')">
+        <div class="toolIcon">💰</div>
+        <h3>EMI Calculator</h3>
+        <p>
+          Loan की monthly EMI और total interest calculate करें।
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- ================= CALCULATOR ================= -->
+
+<section class="toolPanel" id="calculatorTool">
+
+  <div class="toolBox">
+
+    <h2>🧮 Calculator</h2>
+
+    <input
+      id="calcDisplay"
+      type="text"
+      readonly
+      placeholder="0"
+    >
+
+    <div class="calcGrid">
+
+      <button onclick="clearCalc()">AC</button>
+      <button onclick="backspaceCalc()">⌫</button>
+      <button onclick="appendCalc('(')">(</button>
+      <button onclick="appendCalc(')')">)</button>
+
+      <button onclick="appendCalc('7')">7</button>
+      <button onclick="appendCalc('8')">8</button>
+      <button onclick="appendCalc('9')">9</button>
+      <button onclick="appendCalc('/')">÷</button>
+
+      <button onclick="appendCalc('4')">4</button>
+      <button onclick="appendCalc('5')">5</button>
+      <button onclick="appendCalc('6')">6</button>
+      <button onclick="appendCalc('*')">×</button>
+
+      <button onclick="appendCalc('1')">1</button>
+      <button onclick="appendCalc('2')">2</button>
+      <button onclick="appendCalc('3')">3</button>
+      <button onclick="appendCalc('-')">−</button>
+
+      <button onclick="appendCalc('0')">0</button>
+      <button onclick="appendCalc('.')">.</button>
+      <button class="equal" onclick="calculateResult()">=</button>
+      <button onclick="appendCalc('+')">+</button>
+
+    </div>
+
+    <button class="backBtn" onclick="closeTools()">
+      ← वापस जाएं
+    </button>
+
   </div>
-  <button class="close-tool" onclick="closeTools()">← वापस जाएं</button>
+
 </section>
 
-<!-- AGE CALCULATOR PANEL -->
-<section class="tool-panel" id="ageTool">
-  <h2>🎂 Age Calculator</h2>
-  <div class="field"><label>Date of Birth</label><input type="date" id="dob"></div>
-  <div class="field"><label>Calculate Until</label><input type="date" id="ageUntil"></div>
-  <button class="calc-btn" onclick="calculateAge()">Calculate 🚀</button>
-  <div class="result" id="ageResult"><strong></strong><span></span></div>
-  <button class="close-tool" onclick="closeTools()">← वापस जाएं</button>
+
+<!-- ================= AGE CALCULATOR ================= -->
+
+<section class="toolPanel" id="ageTool">
+
+  <div class="toolBox">
+
+    <h2>🎂 Age Calculator</h2>
+
+    <input
+      class="input"
+      type="date"
+      id="dob"
+    >
+
+    <button class="actionBtn" onclick="calculateAge()">
+      Calculate Age
+    </button>
+
+    <div class="result" id="ageResult">
+      अपनी Date of Birth डालें।
+    </div>
+
+    <button class="backBtn" onclick="closeTools()">
+      ← वापस जाएं
+    </button>
+
+  </div>
+
 </section>
 
-<!-- EMI PANEL -->
-<section class="tool-panel" id="emiTool">
-  <h2>💰 EMI Calculator</h2>
-  <div class="field"><label>Loan Amount (₹)</label><input type="number" id="loanAmount" placeholder="500000"></div>
-  <div class="field"><label>Interest Rate (% yearly)</label><input type="number" id="interest" placeholder="8.5" step="0.01"></div>
-  <div class="field"><label>Tenure (Years)</label><input type="number" id="years" placeholder="5"></div>
-  <button class="calc-btn" onclick="calculateEMI()">Calculate EMI 💸</button>
-  <div class="result" id="emiResult"><strong></strong><span></span></div>
-  <button class="close-tool" onclick="closeTools()">← वापस जाएं</button>
+
+<!-- ================= EMI CALCULATOR ================= -->
+
+<section class="toolPanel" id="emiTool">
+
+  <div class="toolBox">
+
+    <h2>💰 EMI Calculator</h2>
+
+    <input
+      class="input"
+      type="number"
+      id="loanAmount"
+      placeholder="Loan Amount ₹"
+    >
+
+    <input
+      class="input"
+      type="number"
+      id="interestRate"
+      placeholder="Annual Interest Rate %"
+      step="0.01"
+    >
+
+    <input
+      class="input"
+      type="number"
+      id="loanYears"
+      placeholder="Loan Tenure (Years)"
+    >
+
+    <button class="actionBtn" onclick="calculateEMI()">
+      Calculate EMI
+    </button>
+
+    <div class="result" id="emiResult">
+      Loan details डालें।
+    </div>
+
+    <button class="backBtn" onclick="closeTools()">
+      ← वापस जाएं
+    </button>
+
+  </div>
+
 </section>
+
 
 <footer>
-  <p>© 2026 KaamKiSite 🚀 | All Rights Reserved</p>
-  <div style="margin-top: 10px;">
-    <a href="#" onclick="alert('यह एक फ्री कैलकुलेटर वेबसाइट है।'); return false;">Privacy Policy</a> | 
-    <a href="#" onclick="alert('संपर्क के लिए सोशल मीडिया का उपयोग करें।'); return false;">Contact Us</a>
-  </div>
+  © 2026 KaamKiSite 🚀 — Made with ❤️
 </footer>
 
+
 <script>
-// असली लाइव विज़िटर काउंटर (जो API के जरिए सर्वर से जुड़ेगा और बार-बार रिफ्रेश करने पर नहीं बढ़ेगा)
-fetch('https://api.countapi.xyz/hit/kaamkisite-calculator/visits')
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('visitorCount').innerText = `👥 Total Visitors: ${data.value.toLocaleString()}`;
-  })
-  .catch(error => {
-    // अगर API कभी स्लो हो तो लोकल स्टोरेज फॉールबैक देगा ताकि पेज खराब न दिखे
-    let localVisits = localStorage.getItem('kaamKiSiteFallback');
-    if(!localVisits){ localVisits = 1; localStorage.setItem('kaamKiSiteFallback', localVisits); }
-    document.getElementById('visitorCount').innerText = `👥 Total Visitors: ${localVisits}`;
+
+/* =====================================================
+   TOOL NAVIGATION + MOBILE BACK BUTTON
+===================================================== */
+
+const validTools = [
+  "calculatorTool",
+  "ageTool",
+  "emiTool"
+];
+
+function showTool(id){
+
+  document.getElementById("home").style.display = "none";
+
+  document.querySelectorAll(".toolPanel").forEach(panel=>{
+    panel.classList.remove("active");
   });
 
-document.getElementById("ageUntil").value = new Date().toISOString().split("T")[0];
+  const tool = document.getElementById(id);
+
+  if(tool){
+    tool.classList.add("active");
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+  }
+}
+
+
+function showHome(){
+
+  document.querySelectorAll(".toolPanel").forEach(panel=>{
+    panel.classList.remove("active");
+  });
+
+  document.getElementById("home").style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
 
 function openTool(id){
-  document.getElementById("toolGrid").style.display = "none";
-  document.getElementById("mainHero").style.display = "none";
-  document.querySelectorAll(".tool-panel").forEach(p => p.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+
+  showTool(id);
+
+  if(location.hash !== "#" + id){
+    history.pushState(
+      {tool:id},
+      "",
+      "#" + id
+    );
+  }
 }
+
+
 function closeTools(){
-  document.querySelectorAll(".tool-panel").forEach(p => p.classList.remove("active"));
-  document.getElementById("toolGrid").style.display = "grid";
-  document.getElementById("mainHero").style.display = "grid";
+
+  showHome();
+
+  if(location.hash){
+    history.pushState(
+      {},
+      "",
+      location.pathname + location.search
+    );
+  }
 }
-function appendCalc(v){ document.getElementById('calc-display').value += v; }
-function clearCalc(){ document.getElementById('calc-display').value = ''; }
+
+
+function syncToolFromURL(){
+
+  const id = location.hash.replace("#","");
+
+  if(validTools.includes(id)){
+    showTool(id);
+  }else{
+    showHome();
+  }
+}
+
+
+window.addEventListener("popstate",syncToolFromURL);
+window.addEventListener("hashchange",syncToolFromURL);
+
+syncToolFromURL();
+
+
+/* =====================================================
+   CALCULATOR
+===================================================== */
+
+const calcDisplay =
+  document.getElementById("calcDisplay");
+
+
+function appendCalc(value){
+
+  calcDisplay.value += value;
+}
+
+
+function clearCalc(){
+
+  calcDisplay.value = "";
+}
+
+
+function backspaceCalc(){
+
+  calcDisplay.value =
+    calcDisplay.value.slice(0,-1);
+}
+
+
 function calculateResult(){
-  try{ document.getElementById('calc-display').value = eval(document.getElementById('calc-display').value); }
-  catch(e){ document.getElementById('calc-display').value = 'Error'; }
+
+  const expression = calcDisplay.value;
+
+  if(!expression){
+    return;
+  }
+
+  /* सिर्फ calculator characters allow */
+  if(!/^[0-9+\-*/().\s]+$/.test(expression)){
+
+    calcDisplay.value = "Error";
+    return;
+  }
+
+  try{
+
+    const result = Function(
+      '"use strict"; return (' +
+      expression +
+      ')'
+    )();
+
+    if(!Number.isFinite(result)){
+      calcDisplay.value = "Error";
+      return;
+    }
+
+    calcDisplay.value = result;
+
+  }catch(error){
+
+    calcDisplay.value = "Error";
+  }
 }
+
+
+/* Keyboard support */
+
+document.addEventListener("keydown",(event)=>{
+
+  const calculator =
+    document.getElementById("calculatorTool");
+
+  if(!calculator.classList.contains("active")){
+    return;
+  }
+
+  const allowed =
+    "0123456789+-*/().";
+
+  if(allowed.includes(event.key)){
+
+    appendCalc(event.key);
+
+  }else if(event.key === "Enter"){
+
+    calculateResult();
+
+  }else if(event.key === "Backspace"){
+
+    backspaceCalc();
+
+  }else if(event.key === "Escape"){
+
+    clearCalc();
+  }
+
+});
+
+
+/* =====================================================
+   CALCULATOR BUTTON SOUND
+===================================================== */
+
+let audioContext = null;
+
+
+function playClickSound(){
+
+  try{
+
+    if(!audioContext){
+
+      audioContext =
+        new (
+          window.AudioContext ||
+          window.webkitAudioContext
+        )();
+
+    }
+
+    if(audioContext.state === "suspended"){
+      audioContext.resume();
+    }
+
+    const oscillator =
+      audioContext.createOscillator();
+
+    const gain =
+      audioContext.createGain();
+
+    oscillator.type = "sine";
+
+    oscillator.frequency.setValueAtTime(
+      520,
+      audioContext.currentTime
+    );
+
+    oscillator.frequency.exponentialRampToValueAtTime(
+      190,
+      audioContext.currentTime + 0.055
+    );
+
+    gain.gain.setValueAtTime(
+      0.045,
+      audioContext.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.001,
+      audioContext.currentTime + 0.06
+    );
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+
+    oscillator.start();
+
+    oscillator.stop(
+      audioContext.currentTime + 0.06
+    );
+
+  }catch(error){
+
+    /* sound unavailable */
+  }
+}
+
+
+document.addEventListener("pointerdown",(event)=>{
+
+  if(event.target.closest("button")){
+    playClickSound();
+  }
+
+});
+
+
+/* =====================================================
+   AGE CALCULATOR
+===================================================== */
+
 function calculateAge(){
-  const dob = document.getElementById("dob").value;
-  const until = document.getElementById("ageUntil").value;
-  const res = document.getElementById("ageResult");
-  if(!dob) return;
-  const d1 = new Date(dob), d2 = new Date(until);
-  let y = d2.getFullYear() - d1.getFullYear(), m = d2.getMonth() - d1.getMonth(), d = d2.getDate() - d1.getDate();
-  if(d < 0){ m--; d += new Date(d2.getFullYear(), d2.getMonth(), 0).getDate(); }
-  if(m < 0){ y--; m += 12; }
-  res.style.display = "block";
-  res.querySelector("strong").innerText = `${y} साल, ${m} महीने, ${d} दिन`;
+
+  const dobValue =
+    document.getElementById("dob").value;
+
+  const result =
+    document.getElementById("ageResult");
+
+  if(!dobValue){
+
+    result.innerHTML =
+      "⚠️ पहले Date of Birth चुनें।";
+
+    return;
+  }
+
+  const dob =
+    new Date(dobValue + "T00:00:00");
+
+  const today =
+    new Date();
+
+  if(dob > today){
+
+    result.innerHTML =
+      "⚠️ Future की date valid नहीं है।";
+
+    return;
+  }
+
+  let years =
+    today.getFullYear() -
+    dob.getFullYear();
+
+  let months =
+    today.getMonth() -
+    dob.getMonth();
+
+  let days =
+    today.getDate() -
+    dob.getDate();
+
+
+  if(days < 0){
+
+    months--;
+
+    const previousMonth =
+      new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        0
+      );
+
+    days +=
+      previousMonth.getDate();
+  }
+
+
+  if(months < 0){
+
+    years--;
+    months += 12;
+  }
+
+
+  result.innerHTML =
+    `🎂 आपकी Age है:<br>
+     <strong>${years} साल, ${months} महीने, ${days} दिन</strong>`;
 }
+
+
+/* =====================================================
+   EMI CALCULATOR
+===================================================== */
+
 function calculateEMI(){
-  const p = parseFloat(document.getElementById("loanAmount").value);
-  const r = parseFloat(document.getElementById("interest").value) / 12 / 100;
-  const n = parseFloat(document.getElementById("years").value) * 12;
-  const res = document.getElementById("emiResult");
-  if(!p || !r || !n) return;
-  const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-  res.style.display = "block";
-  res.querySelector("strong").innerText = `मंथली EMI: ₹${emi.toFixed(2)}`;
-  res.querySelector("span").innerText = `कुल भुगतान: ₹${(emi * n).toFixed(2)}`;
+
+  const principal =
+    Number(
+      document.getElementById("loanAmount").value
+    );
+
+  const annualRate =
+    Number(
+      document.getElementById("interestRate").value
+    );
+
+  const years =
+    Number(
+      document.getElementById("loanYears").value
+    );
+
+  const result =
+    document.getElementById("emiResult");
+
+
+  if(
+    !principal ||
+    principal <= 0 ||
+    annualRate < 0 ||
+    !years ||
+    years <= 0
+  ){
+
+    result.innerHTML =
+      "⚠️ सही Loan Amount, Interest और Tenure डालें।";
+
+    return;
+  }
+
+
+  const months =
+    years * 12;
+
+  const monthlyRate =
+    annualRate / 12 / 100;
+
+
+  let emi;
+
+
+  /* 0% interest */
+  if(monthlyRate === 0){
+
+    emi =
+      principal / months;
+
+  }else{
+
+    emi =
+      principal *
+      monthlyRate *
+      Math.pow(
+        1 + monthlyRate,
+        months
+      ) /
+      (
+        Math.pow(
+          1 + monthlyRate,
+          months
+        ) - 1
+      );
+  }
+
+
+  const totalPayment =
+    emi * months;
+
+  const totalInterest =
+    totalPayment - principal;
+
+
+  result.innerHTML = `
+    💳 Monthly EMI:
+    <strong>₹${emi.toLocaleString("en-IN",{
+      maximumFractionDigits:2
+    })}</strong>
+    <br><br>
+
+    💰 Total Payment:
+    <strong>₹${totalPayment.toLocaleString("en-IN",{
+      maximumFractionDigits:2
+    })}</strong>
+    <br><br>
+
+    📈 Total Interest:
+    <strong>₹${totalInterest.toLocaleString("en-IN",{
+      maximumFractionDigits:2
+    })}</strong>
+  `;
 }
+
+
+/* =====================================================
+   REAL VISITOR COUNTER
+===================================================== */
+
+async function loadVisitorCount(){
+
+  const element =
+    document.getElementById("visitorCount");
+
+  try{
+
+    const response =
+      await fetch(
+        "/.netlify/functions/visitors",
+        {
+          method:"GET",
+          cache:"no-store",
+          credentials:"same-origin"
+        }
+      );
+
+
+    if(!response.ok){
+      throw new Error("Visitor API failed");
+    }
+
+
+    const data =
+      await response.json();
+
+
+    element.innerText =
+      `👥 Real Visitors: ${
+        Number(data.count).toLocaleString("en-IN")
+      }`;
+
+
+  }catch(error){
+
+    console.error(
+      "Visitor counter:",
+      error
+    );
+
+    element.innerText =
+      "👥 Visitors: --";
+  }
+}
+
+
+loadVisitorCount();
+
 </script>
+
 </body>
 </html>
